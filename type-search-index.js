@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"lec2_documentation","l":"DocumentationExample"}]
