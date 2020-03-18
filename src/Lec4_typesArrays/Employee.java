@@ -1,4 +1,4 @@
-package Lec4_typesArrays;
+package lec4_typesArrays;
 
 public class Employee extends Human{
 	Address residence;   

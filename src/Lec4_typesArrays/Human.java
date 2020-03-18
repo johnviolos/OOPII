@@ -1,4 +1,4 @@
-package Lec4_typesArrays;
+package lec4_typesArrays;
 //slide 7
 public class Human {
 	String name,surname;
