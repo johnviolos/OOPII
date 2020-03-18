@@ -1,4 +1,4 @@
-package lec4_typesArrays;
+package lec4_typesOfArrays;
 //Lec 2 Slide 49
 import java.util.Date;
 
