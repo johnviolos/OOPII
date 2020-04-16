@@ -1,4 +1,4 @@
 This goes to err.txt
 java.lang.Exception: Exception goes to err.txt too
-	at lec5_streams.StreamsExample.setErrFile(StreamsExample.java:69)
-	at lec5_streams.StreamsExample.main(StreamsExample.java:17)
+	at gr.hua.dit.oopii.lec5.streams.StreamsExample.setErrFile(StreamsExample.java:72)
+	at gr.hua.dit.oopii.lec5.streams.StreamsExample.main(StreamsExample.java:18)

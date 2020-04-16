@@ -23,7 +23,7 @@ public class RandomAccessFileExample {
 	         raf.seek(0);
 
 	         // attempt to skip 10 bytes and print the number of bytes skipped
-	         System.out.println("" + raf.skipBytes(10));
+	         System.out.println("" + raf.skipBytes(5));
 
 	         // print what is left after skipping
 	         System.out.println("" + raf.readLine());

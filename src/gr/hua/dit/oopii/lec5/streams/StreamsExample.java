@@ -10,9 +10,10 @@ import java.util.Scanner;
 
 public class StreamsExample {
 public static void main(String Args[]) throws Exception {
-	//setOutExample("folderEx");		//The output is File
-	//setOutExample("file1.txt");		//It outputs an error to standard output.
-	//setInKeyboard();					//The input is from Example.
+	
+	//setOutExample("file1.txt");			//It writes a String in a File. 
+	//setOutExample("folderEx");		//If the file exists but is a directory rather than a regular file, does not exist but cannot be created, or cannot be opened for any other reason then a FileNotFoundException is thrown
+	//setInKeyboard();					//The input is from keyboard.
 	//setInFile(); 						//The input is from File.
 	setErrFile();						//We redirect errors to File.
 }
@@ -21,13 +22,13 @@ public static void setOutExample(String fileName) {
 	FileOutputStream f = null;
 	System.err.println("We write an error message");	//By convention, this output stream is used to display error messages
 	try {
-		f = new FileOutputStream(fileName);  		//Creates a file output stream.
+		f = new FileOutputStream(fileName);  		//Creates a file output stream to write to the file with the specified name.
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
 		System.err.println("Got an error: " + e);	//The "standard" error output stream.
 		//e.printStackTrace();
 	} 
-	System.setOut(new PrintStream(f));  	// We define as output the file f (file1.)
+	System.setOut(new PrintStream(f));  	// We define as output the file fileName
 	System.out.println(sonnet); 			//Print a String to The "standard" output stream. This stream is already open and ready to accept output data. 
 											//Typically this stream corresponds to display output or another output destination specified by the host environment or user.
 }
@@ -37,6 +38,7 @@ public static void setInKeyboard() {
 	Scanner sc = new Scanner(System.in);//Scanner  produces values scanned from the specified input stream (system.in). 
     System.out.println("Printing the file passed in:");
     while(sc.hasNextLine()) System.out.println(sc.nextLine().toUpperCase());
+    sc.close();
 }
 
 public static void setInFile() throws IOException {
@@ -46,7 +48,7 @@ public static void setInFile() throws IOException {
     System.out.println("file exits: "+file.exists());
 
     FileInputStream stream = new FileInputStream(file);
-    System.setIn(stream);
+    System.setIn(stream);		//Reassigns the "standard" input stream.
 
     System.out.println("-- reading from System.in --");
 

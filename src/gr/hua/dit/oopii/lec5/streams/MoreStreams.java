@@ -12,7 +12,7 @@ import java.io.PrintStream;
 
 public class MoreStreams {
 public static void main(String args[])throws Exception{  
-	printStream();
+	//printStream();
 	bufferedInputStream();
 }
 

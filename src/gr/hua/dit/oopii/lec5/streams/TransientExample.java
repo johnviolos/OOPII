@@ -9,7 +9,7 @@ public class TransientExample {
 
 public static void main(String args[])throws Exception{ 
 	
-	//serialize("transExam.dat");
+	serialize("transExam.dat");
 	deserialize("transExam.dat");
 }
 
@@ -36,8 +36,8 @@ public static void deserialize(String fileName)throws Exception{
 public static class Student implements Serializable{  
 	private static final long serialVersionUID = 1L;
 	int id;  
-	String name;  //If we make String name Transient then it will be null.
-	transient int age;//Now it will not be serialized  
+	transient String name;  //If we make String name Transient then it will be null.
+	 int age;//Now it will not be serialized  
 	 public Student(int id, String name,int age) {  
 	  this.id = id;  
 	  this.name = name;  

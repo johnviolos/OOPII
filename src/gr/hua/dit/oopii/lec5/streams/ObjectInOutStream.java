@@ -29,7 +29,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
 
 public static void writeObjectShop(String shopFileName) {
 
-      Shop shop1 = new Shop("Attica", 250);				// Shop implements java.io.Serializable
+      Shop newShop1 = new Shop("Attica", 250);				// Shop implements java.io.Serializable
       Shop shop2 = new Shop("Anna Riska", 300);
       try {
          // create a new file with an ObjectOutputStream
@@ -37,7 +37,7 @@ public static void writeObjectShop(String shopFileName) {
          ObjectOutputStream oout = new ObjectOutputStream(out);
 
          // write something in the file
-         oout.writeObject(shop1);
+         oout.writeObject(newShop1);
          oout.writeObject(shop2);
          oout.flush();
          // close the stream
