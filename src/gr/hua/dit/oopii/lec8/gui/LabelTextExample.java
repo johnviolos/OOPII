@@ -15,14 +15,16 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class LabelTextExample {
-	public static void main(String[] args) {texts();}
+	public static void main(String[] args) {texts();
+	//labels();
+	}
 	
 	
 	public static void labels() {
 		JLabel label1 = new JLabel("JLabel");
 		JLabel label2 = new JLabel("JLabel",SwingConstants.CENTER); 
-		label2.setOpaque(true); label2.setBackground(Color.white);
-		JLabel label3 = new JLabel("JLabel",SwingConstants.CENTER); 
+		label2.setOpaque(false); label2.setBackground(Color.white);
+		JLabel label3 = new JLabel("JLabel",SwingConstants.RIGHT); 
 		label3.setFont(new Font("Helvetica", Font.BOLD, 18)); 
 		label3.setOpaque(true); label3.setBackground(Color.white);
 		ImageIcon icon = new ImageIcon("java_image.jpg");

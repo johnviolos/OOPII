@@ -14,7 +14,7 @@ public class CombinationExample {
 		JButton b1 = new JButton("OK");
 		JButton b2 = new JButton("Cancel");
 		p1.add(b1);
-		p1.add(b2);
+		p1.add(b2); 
 		JTextArea t=new JTextArea("The text is here!"); 
 		f.getContentPane().setLayout(new BorderLayout()); 
 		f.getContentPane().add(p1,BorderLayout.NORTH); 

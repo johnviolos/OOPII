@@ -16,7 +16,7 @@ public class ButtonExample {
 	tb1.setMnemonic('n'); // Ενεργοποιείται με ALT+n 
 	tb1.setToolTipText("This is the ON button"); 
 	tb2.setMnemonic('f'); // Ενεργοποιείται με ALT+f 
-	tb1.setToolTipText("This is the OFF button"); 
+	tb2.setToolTipText("This is the OFF button"); 
 	buttonGroup.add(tb1);
 	buttonGroup.add(tb2);
 	JPanel myPanel=new JPanel();

@@ -1,6 +1,7 @@
 package gr.hua.dit.oopii.lec10.threads;
 
-class Animation implements Runnable { boolean finished;
+class Animation implements Runnable { 
+	boolean finished;
 	static int counter=0;
 	public void run( ) {
 		counter++;
@@ -20,6 +21,7 @@ class Animation implements Runnable { boolean finished;
 		Animation happy = new Animation();
 		Thread myThread = new Thread( happy );
 		myThread.start( );
+		
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
