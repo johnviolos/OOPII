@@ -13,12 +13,12 @@ public class FamilyDemo {
 		new Thread(c2).start();
 		Child c3=new Child("Martha",acc);
 		Child c4=new Child("Magda",acc);
-		//Child c5=new Child("Kon",acc);
-		//Child c6=new Child("Orestis",acc);
+		Child c5=new Child("Kon",acc);
+		Child c6=new Child("Orestis",acc);
 		new Thread(c3).start();
 		new Thread(c4).start();
-		//new Thread(c5).start();
-		//new Thread(c6).start();
+		new Thread(c5).start();
+		new Thread(c6).start();
 		
 	}
 
