@@ -14,8 +14,8 @@ public class UppercaseText implements MouseListener {
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
-		String text = ListenerInterface2Buttons.getTf1Text();
+	public void mousePressed(MouseEvent e) { 							// It listens mousePressed
+		String text = ListenerInterface2Buttons.getTf1Text();			//  & it Acts with the following statements
 		ListenerInterface2Buttons.setTf2Text(text.toUpperCase());
 		System.out.println(text);
 		
