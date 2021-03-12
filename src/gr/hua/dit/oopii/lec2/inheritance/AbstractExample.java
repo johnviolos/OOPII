@@ -12,13 +12,13 @@ class B extends A{
 
 public class AbstractExample{
 
-    public static void whoTold(A a)
+    public static void whoTold(A a)			//the type of the argument is an abstract class.
     {
             a.tell();
     }
 
     public static void main(String[] args){
-            B b = new B();
+            A b = new B(); //We cannot instantiate objects of abstract classes i.e. new A() 
             whoTold(b);
    }
 }

@@ -1,19 +1,24 @@
+//**slide 58 Interface */
 package gr.hua.dit.oopii.lec2.inheritance;
-//slide 58
 interface IFace{
+	static final float  pi =3.14f;
 void drawFace();
 }
 class RealFace implements IFace {
-public void drawFace(){
+public void drawFace(){		//We implement the abstract method of the interface.
 System.out.println("I'm drawing a beautiful face");
+
 }
 }
+
 public class Interface_Ex {
 public static void callIFace(IFace face) { // Argument type is interface.
 face.drawFace();
 }
+
 public static void main(String[] args) {
 IFace face = new RealFace();
+System.out.println("The Interface can have static-final attributes: "+ IFace.pi);
 callIFace(face);
 
 Module[] instances = new Module[20];

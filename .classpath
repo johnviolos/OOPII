@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/Users/violos/Files/Coding/eclipse-workspace/Tests/jars/google-collections-1.0.jar"/>
-	<classpathentry kind="lib" path="/Users/violos/Files/Coding/eclipse-workspace/Tests/jars/mysql-connector-java-8.0.15-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/violos/Files/Coding/eclipse-workspace/Tests/jars/mysql-connector-java-8.0.15.jar" sourcepath="/Users/violos/.m2/repository/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/violos/Files/Coding/eclipse-workspace/Tests/jars/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="/Users/violos/Files/Coding/eclipse-workspace/Tests/jars/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="/Users/violos/Files/Coding/eclipse-workspace/Tests/logs"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/google-collections-1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/mysql-connector-java-8.0.15-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/mysql-connector-java-8.0.15.jar"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

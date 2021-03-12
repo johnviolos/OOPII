@@ -45,7 +45,7 @@ public static int countCriterionfCity(String cityArticle, String criterion) {
 }
 
 
-public static void main (String[] args){
+public static void main (String args[]){
 	String text="Museums History Car Bike House Museums Bike Mountain Cafe History";
 	System.out.println("The number of distinct words is: "+countDistinctWords(text));
 	System.out.println("The number of total words is: "+countTotalWords(text));

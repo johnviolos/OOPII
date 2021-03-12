@@ -1,5 +1,5 @@
+/**slide 39*/
 package gr.hua.dit.oopii.lec2.inheritance;
-//slide 39
 import java.util.logging.FileHandler;
 
 public class ConstructorsSequence {

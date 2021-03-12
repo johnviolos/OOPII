@@ -1,5 +1,7 @@
+/** Primitive types pass by value, collections and objects "seem to be passed by reference". 
+* In fact, everything in Java is passed by value because they are pointers.
+* We also have the unmodifiable collections */
 package gr.hua.dit.oopii.lec2.inheritance;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +14,13 @@ ReferenceValue(){
 	this.obj_value=5;
 }
 
-public static void passPrimitiveTypes(int number) {
+ReferenceValue(ReferenceValue in_obj){//Easy way to duplicate an object with a constructor that copies (duplicates) all elements. 
+	this.obj_value=in_obj.obj_value;
+	System.out.println("Argument-object hascode is: " + in_obj.hashCode());
+	System.out.println("The new-created object hascode is: " + this.hashCode());
+}
+
+public static void passPrimitiveTypes(int number) { //The changes of the primitive types inside the class do not take effect outside the class.
 	number=10;
 }
 
@@ -26,37 +34,59 @@ public static void passObject_withNew( ReferenceValue obj) {
 	obj=object2; //The object pointer will not change.
 }
 
+public static void passArray( int[] in_array) {
+
+	in_array[0]=100;
+	in_array[1]=100;
+	in_array[2]=100;
+}
+
 public static void passObject_withfinal(final ReferenceValue obj , final int number) {
 	
+	//number=50;
 	obj.obj_value=number;
-	//.obj_value=number;
+
 }
 
 public static void main(String[] args) {
 	int number=5;
-	passPrimitiveTypes(number);
-	System.out.println("Primitive type value: "+number);	//Primitive type passed by Value.
+	System.out.println("Before call the func: Primitive types passed by value: "+number);
+	passPrimitiveTypes(number);	//It adds 10 to the primitive type argument but no changes take place.
+	System.out.println("After call the func: Primitive types passed by value: "+number +"\n");	//Primitive type passed by Value. 
 
 	ReferenceValue object = new ReferenceValue();
-	passObject(object,10);
-	System.out.println("Object value: "+object.obj_value); //Objects passed by "Reference".
+	System.out.println(object.hashCode() + " Before call the func: Objects seems to be passed by \"reference\" "+object.obj_value); //the object's hash code, which is the object's memory address in hexadecimal.
+	passObject(object,200);
+	System.out.println(object.hashCode() + " After call the func: Objects seems to be passed by \"reference\": "+object.obj_value +"\n"); //Objects seems passed by "Reference". The changes took place.
 
-	ReferenceValue object3 = new ReferenceValue(); //Reference to the values of the object. But passed with value thepointer to the object. We cannoz change the object that we point.
-	passObject_withNew(object3); //But we can change the variables of the object that we pass in. Δεν μπορώ να δειξω σε άλλο αντικείμενο. O pointer θα δείχνει πάντα στο ιδιο object.
-	System.out.println("Object value: "+object3.obj_value);
+	int[] in_array = {11,12,13,14,15};
+	System.out.println(in_array.hashCode() + " Before call the func: Arrays also seem to be passed by \"reference\": "+in_array[0 ] +" "+ in_array[1] +" "+ in_array[2] +" "+ in_array[3] +" "+ in_array[4]);
+	passArray(in_array);
+	System.out.println(in_array.hashCode() + " After call the func: Arrays also seem to be passed by \"reference\": "+in_array[0 ] +" "+ in_array[1] +" "+ in_array[2] +" "+ in_array[3] +" "+ in_array[4]+"\n"); //Objects passed by "Reference".
 	
-	ReferenceValue object4 = new ReferenceValue();
-	final ReferenceValue object5 = object4;
+	ReferenceValue object3 = new ReferenceValue(); //Reference to the values of the object. But passed with value thepointer to the object. We cannot change the object that we point.
+	System.out.println(object3.hashCode() + " Before call the func: On the left we have the object's hash code, which is the object's memory address: " +object3.obj_value);
+	passObject_withNew(object3); //But we can change the variables of the object that we pass in. Δεν μπορώ να δειξω σε άλλο αντικείμενο. O pointer θα δείχνει πάντα στο ιδιο object. 
+	System.out.println(object3.hashCode() + " But, we cannot change the reference (pointer) of the object: On the left we have again the hase hashcode: "+object3.obj_value); //So if we re-think our statement everything is passed by value!!! you cannot change where that pointer points.
+	System.out.println("In fact everything in Java is PASSED BY VALUE!");
+
+	final ReferenceValue object4 = new ReferenceValue();
+	//object4 = object; //Final declaration of objects cannot change objects. But object4 = object; is acceptable.
 	
-	passObject(object5,10);
-	System.out.println("Object value: "+object5.obj_value);
+	System.out.println("\n\n\nHow can define that some collections or objects should not be modified?\n");
+	
+	ReferenceValue object5 = new ReferenceValue();
+
+	passObject(new ReferenceValue(object5) ,200);	//we really make a new object that duplicate the status of object5 and pass it as argument into the function. 
+	System.out.println(object5.hashCode() + " With the new object as argument and constructor that makes a deep copy, we can pass the object: "+object5.obj_value); //Objects passed by "Reference".
+	unmodifiedcollection(); //Unmodifiable collections!
 	
 }
 
-public static void unmodifiedcollection() {
+public static void unmodifiedcollection() {  // We can explicitly declare a collection as unmodifiable and we will not be able to modify this collection.
 List<String> strings = new ArrayList<String>();
-List<String> unmodifiable = Collections.unmodifiableList(strings);
-unmodifiable.add("New string"); // will fail at runtime
+List<String> unmodifiable = Collections.unmodifiableList(strings);	//Now the collection cannot be modified.
+//unmodifiable.add("New string"); // will fail at runtime
 strings.add("Aha!"); // will succeed
 System.out.println(unmodifiable);
 }

@@ -1,9 +1,17 @@
 package gr.hua.dit.oopii.lec2.inheritance;
 //slide 21 we call three times with different parameters and execute different methods.
-class Calculator{
-	
-	Calculator(String name){System.out.println("Calculator constructor! Hi "+ name);}
-	Calculator(String name, int num){System.out.println("Calculator constructor! Hi "+ name);}
+public class Callculator{
+	Callculator(){	//Default Constructor.
+		System.out.println("Callculator Default constructor!");}
+	Callculator(String name){	// Constructor with one argument.
+		System.out.println("Callculator constructor with one argument. "+ name);}
+	Callculator(String name, int num){	// Constructor with two arguments.
+		System.out.println("Callculator constructor with two argumets. "+ name);}
+
+	public int object_method (int a, int b) {
+		System.out.println("int"); 
+		return a+b;
+	}
 	
 	static int add(int a, int b) {
 		System.out.println("int"); 
@@ -20,10 +28,18 @@ class Calculator{
 		return a+b;
 	}
  
-	public static void main(String args[] ){ 
+	static int add(int a, int b, int c) {
+		System.out.println("float"); 
+		return a+b+c;
+	}
+	
+	public static void main(String[] args ){ 
 		int x=5; int y=6;
-		float k=5.3f; double m=4.5; System.out.println("Atrhoisma "+ add(x,y)+"\n"); 
+		float k=5.3f; double m=4.5; 
+		System.out.println("Atrhoisma "+ add(x,y)+"\n"); 
 		System.out.println("Athroisma "+ add(k,m)+"\n"); 
 		System.out.println("Athroisma "+ add(x,m)+"\n");
+		System.out.println("Athroisma "+ add(x,10,100)+"\n");
+		
 	} 
 }
