@@ -9,6 +9,7 @@ import java.util.List;
 //slide 7
 public class ReferenceValue {
  int obj_value;
+ public final static List<String> public_final_strings = new ArrayList<String>();
  
 ReferenceValue(){
 	this.obj_value=5;
@@ -87,13 +88,29 @@ public static void main(String[] args) {
 
 public static void unmodifiedcollection() {  // We can explicitly declare a collection as unmodifiable and we will not be able to modify this collection.
 List<String> strings = new ArrayList<String>();
-List<String> unmodifiable = Collections.unmodifiableList(strings);	//Now the collection cannot be modified.
+List<String> unmodifiable = Collections.unmodifiableList(strings);	//Now the collection cannot be modified. We cannot add or remove items from the list. 
 //unmodifiable.add("New string"); // will fail at runtime
 strings.add("Aha!"); // will succeed
 System.out.println(unmodifiable);
+
+public_final_strings.add("word1");	//In the public final list we can add or remove elements.
+public_final_strings.add("word2");
+public_final_strings.add("word3");
+public_final_strings.remove(1);
+System.out.println(public_final_strings);
+// public_final_strings = strings; //When the pointer is final, it cannot point another object (even if it is the same class).  
+
+List<Human> list_data_obj = new ArrayList<Human>();
+Human x1 = new Human();
+x1.setName("\nDimitris");
+list_data_obj.add(x1);
+List<Human> unmodifiable_list_data_obj = Collections.unmodifiableList(list_data_obj);
+System.out.println(unmodifiable_list_data_obj.get(0).getName());
+x1.setName("Peter");
+System.out.println(unmodifiable_list_data_obj.get(0).getName());
 }
 
-public class ImmutableClass {
+public class ImmutableClass {	//Immutable class has a constructor to initialize the objects. It has getters to return the values but it does not have setters.
 	private int var1;
 	private int var2;
 	
