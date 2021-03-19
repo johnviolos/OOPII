@@ -97,6 +97,7 @@ public static void readCollectionOfObjectShops(String shopFileName) throws FileN
 	ois = new ObjectInputStream(new FileInputStream(shopFileName));
     // read and print what we wrote before
 	
+	@SuppressWarnings("unchecked")
 	HashMap<String, Shop>  hashmapShops = (HashMap<String, Shop> ) ois.readObject();
 
 	

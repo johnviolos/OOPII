@@ -21,7 +21,7 @@ ReferenceValue(ReferenceValue in_obj){//Easy way to duplicate an object with a c
 }
 
 public static void passPrimitiveTypes(int number) { //The changes of the primitive types inside the class do not take effect outside the class.
-	number=10;
+	number=1000;
 }
 
 public static void passObject( ReferenceValue obj , int number) {
@@ -77,8 +77,10 @@ public static void main(String[] args) {
 	
 	ReferenceValue object5 = new ReferenceValue();
 
-	passObject(new ReferenceValue(object5) ,200);	//we really make a new object that duplicate the status of object5 and pass it as argument into the function. 
+	passObject(new ReferenceValue(object5), 200);	//we really make a new object that duplicate the status of object5 and pass it as argument into the function. 
 	System.out.println(object5.hashCode() + " With the new object as argument and constructor that makes a deep copy, we can pass the object: "+object5.obj_value); //Objects passed by "Reference".
+	
+	
 	unmodifiedcollection(); //Unmodifiable collections!
 	
 }

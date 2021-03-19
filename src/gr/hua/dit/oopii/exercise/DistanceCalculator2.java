@@ -33,5 +33,13 @@ public class DistanceCalculator2 {
 	    System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, 'K') + " Kilometers\n");
 	    System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, 'N') + " Nautical Miles\n");
 	    System.out.println(distance(90,0,0, 180, 'K') + " Kilometers\n");
+	    
+	    System.out.println("new: "+distance(37.9795, 23.7162, 451.5085,-0.1257, 'K') + " Kilometers\n");
+	   
 	    }
 }
+/*
+geodesic_vector_tokyo = [35.6895,139.6917]
+geodesic_vector_rome = [41.8947,12.4839]
+geodesic_vector_london = [51.5085,-0.1257]
+geodesic_vector_user =[37.9795,23.7162]*/

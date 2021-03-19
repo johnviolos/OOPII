@@ -11,5 +11,9 @@
 	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/mysql-connector-java-8.0.15.jar"/>
 	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/ojdbc6.jar"/>
 	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/jackson-annotations-2.9.8.jar"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/jackson-core-2.9.8.jar"/>
+	<classpathentry kind="lib" path="/Users/johnviolos/eclipse-workspace/OOPII/jars/jackson-databind-2.9.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
