@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class StreamsExample {
 public static void main(String Args[]) throws Exception {
 	
-	//setOutExample("file1.txt");			//It writes a String in a File. 
-	//setOutExample("folderEx");		//If the file exists but is a directory rather than a regular file, does not exist but cannot be created, or cannot be opened for any other reason then a FileNotFoundException is thrown
+	setOutExample("file1.txt");			//It writes a String in a File. 
+	//setOutExample("folderEx");		//If the file exists but is a directory rather than a regular file/ cannot be created/ cannot be opened for any other reason: then a [FileNotFoundException is thrown]
 	//setInKeyboard();					//The input is from keyboard.
 	//setInFile(); 						//The input is from File.
-	setErrFile();						//We redirect errors to File.
+	//setErrFile();						//We redirect errors to File.
 }
 
 public static void setOutExample(String fileName) {

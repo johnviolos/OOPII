@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class ObjectInputOutputStream {
 	public static void main(String[] args) {
 
-		Person p1 = new Person("John", 30, "Male");
+		Person p1 = new Person("John", 30, "Male");				//Person implements Serializable interface in order to save it in file.
 		Person p2 = new Person("Rachel", 25, "Female");
 
 		try {

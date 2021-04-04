@@ -1,5 +1,5 @@
+//We have a pipe in which we put data and take them later/
 package gr.hua.dit.oopii.lec5.streams;
-
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
@@ -19,8 +19,8 @@ public static void pipeWriteRead()  throws IOException {
             geek_input.connect(geek_output); 
   
             // Use of read() method : 
-        geek_output.write(75); 
-        System.out.println("using read() : " + (char)geek_input.read()); 
+        geek_output.write(75); //We put data in the pipe with the: PipedOutputStream.write()
+        System.out.println("using read() : " + (char)geek_input.read()); //We read data from the pipe with the: PipedInputStream.read()
         geek_output.write(70); 
         System.out.println("using read() : " + (char)geek_input.read()); 
         geek_output.write("k".codePointAt(0)); 
@@ -33,7 +33,7 @@ public static void pipeWriteRead()  throws IOException {
     } 
 } 
 
-public static void readWithBuffer() throws IOException 
+public static void readWithBuffer() throws IOException //We also use a buffer (ArrayList)
 { 
     PipedInputStream geek_input = new PipedInputStream(); 
     PipedOutputStream geek_output = new PipedOutputStream(); 
@@ -59,7 +59,7 @@ public static void readWithBuffer() throws IOException
         String str = new String(buffer); 
         System.out.println("Using read(buffer, offset, maxlen) : " + str); 
 
-        // USe of close() method : 
+        // Use of close() method : 
         System.out.println("Closing the stream"); 
         geek_input.close(); 
 

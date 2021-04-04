@@ -28,7 +28,7 @@ public class Streams_examples {
 		@SuppressWarnings("unused")
 		int million = 1_000_000;
 		channelprocessing();
-		//serializableWrite_obj();
+		serializableWrite_obj();
 		//serializableRead_obj();
 		
 		//serializableWrite();
@@ -184,7 +184,7 @@ public static void channelprocessing() {
 	
 	RandomAccessFile file = null;
 	try {
-		file = new RandomAccessFile("sonnet.txt", "r");
+		file = new RandomAccessFile("file1.txt", "r");
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

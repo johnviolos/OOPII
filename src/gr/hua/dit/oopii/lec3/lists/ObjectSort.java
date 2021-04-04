@@ -19,25 +19,30 @@ class Simpson implements Comparable<Simpson> {
 }
 
 public class ObjectSort {
+		
+     public static void main(String... sortingWithList) {// ... zero or more String objects (or a single array of them) may be passed as the argument(s)
+        List<Simpson> simpsons_list = new ArrayList<>();
+        simpsons_list.add(new Simpson("Homer "));
+        simpsons_list.add(new Simpson("Marge "));
+        simpsons_list.add(new Simpson("Bart "));
+        simpsons_list.add(new Simpson("Lisa "));
 
-     public static void main(String... sortingWithList) {
-        List<Simpson> simpsons = new ArrayList<>();
-        simpsons.add(new Simpson("Homer "));
-        simpsons.add(new Simpson("Marge "));
-        simpsons.add(new Simpson("Bart "));
-        simpsons.add(new Simpson("Lisa "));
-
-        Collections.sort(simpsons);
-        //simpsons.stream().map(s -> s.name).forEach(System.out::print);
+        Collections.sort(simpsons_list);
+        //simpsons_list.stream().map(s -> s.name).forEach(System.out::print);
         //System.out.println("");
         
-        
-        Iterator<Simpson> it = simpsons.iterator();
+        System.out.println("Sorted:");
+        Iterator<Simpson> it = simpsons_list.iterator();
         StringBuffer buf = new StringBuffer(); while (it.hasNext())
         buf.append( (it.next()).name) .append( " " ); System.out.println(buf.toString());
         
-        Collections.reverse(simpsons);
-        it = simpsons.iterator();
+        System.out.println("\n2nd and 3rd element in the sorted list:");
+        System.out.println("2st: "+simpsons_list.get(1).name);
+        System.out.println("3nd: "+simpsons_list.get(2).name);
+        
+        System.out.println("\nReverse Sorted:");
+        Collections.reverse(simpsons_list);
+        it = simpsons_list.iterator();
         StringBuffer buf2 = new StringBuffer(); while (it.hasNext())
         buf2.append( (it.next()).name) .append( " " ); System.out.println(buf2.toString());
         

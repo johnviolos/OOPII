@@ -19,7 +19,6 @@ public static void main(String[] Args) {
 	try {
 		file3.createNewFile();
 	} catch (IOException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}finally {
 		file3.setReadOnly();		//We set the file as ReadOnly
@@ -32,9 +31,9 @@ public static void main(String[] Args) {
 	Date date = new Date(file4.lastModified());
 	System.out.println("When did the "+file4.getName()+ " last modified? "+date);
 	
-	File file5 = new File("/Users/violos/Files/Coding/eclipse-workspace/Tests/");
+	File file5 = new File("/Users/johnviolos/eclipse-workspace/OOPII");
 	String[] fileNames= file5.list();
-	System.out.println("The List of files: ");
+	System.out.println("\nThe List of files: ");
 	for (int i=0; i<fileNames.length; i++)
 		{System.out.print(fileNames[i]+" ");
 		if (i%5==0)

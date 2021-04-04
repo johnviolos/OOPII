@@ -7,7 +7,7 @@ public class SequenceInOutStream {
    FileInputStream fin1=new FileInputStream("file1.txt");    
    FileInputStream fin2=new FileInputStream("file3.txt");    
    FileOutputStream fout=new FileOutputStream("file4.txt");      
-   SequenceInputStream sis=new SequenceInputStream(fin1,fin2);    
+   SequenceInputStream sis=new SequenceInputStream(fin1,fin2);    //It concatenates two Stream sequences.
    int i;    
    while((i=sis.read())!=-1)    
    {    

@@ -10,7 +10,7 @@ import java.util.List;
 public class ReferenceValue {
  int obj_value;
  public final static List<String> public_final_strings = new ArrayList<String>();
- 
+ public static final Human human = new Human();
 ReferenceValue(){
 	this.obj_value=5;
 }
@@ -84,6 +84,10 @@ public static void main(String[] args) {
 	
 	unmodifiedcollection(); //Unmodifiable collections!
 	
+	System.out.println("Old name: "+human.getName()); 	// human is public static final. We cannot change the pointer, but we can change the state of the object.
+	human.setName("Theodoros");
+	System.out.println("New name: "+human.getName());
+	//human= new Human(); We cannot because the pointer cannot point a different object.
 }
 
 public static void unmodifiedcollection() {  // We can explicitly declare a collection as unmodifiable and we will not be able to modify this collection.
@@ -98,7 +102,7 @@ public_final_strings.add("word2");
 public_final_strings.add("word3");
 public_final_strings.remove(1);
 System.out.println(public_final_strings);
-// public_final_strings = strings; //When the pointer is final, it cannot point another object (even if it is the same class).  
+//public_final_strings = strings; //When the pointer is final, it cannot point another object (even if it is the same class).  
 
 List<Human> list_data_obj = new ArrayList<Human>();
 Human x1 = new Human();

@@ -1,5 +1,5 @@
 package gr.hua.dit.oopii.lec5.streams;
-//slide 10
+//slide 10 We see how we can use the readLine()
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -10,8 +10,8 @@ import java.io.LineNumberReader;
 
 public class ReaderExample {
 	public static void main(String[] args) throws Exception {
-		//bufferedReader();
-		lineNumberReader();
+		bufferedReader();
+		//lineNumberReader();
 		
 	}	
 	   public static void bufferedReader() throws Exception {
@@ -34,7 +34,7 @@ public class ReaderExample {
 		      }
 		   }
 	   
-	   public static void lineNumberReader() throws IOException {
+	   public static void lineNumberReader() throws IOException {	//We read each line and keep the line-numbers (line numbering begins at 0).
 		      FileReader fr = null;
 		      LineNumberReader lnr = null;
 		      String str;

@@ -1,34 +1,32 @@
+//lec 4 slide 11
 package gr.hua.dit.oopii.lec4.exceptions;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 //import java.util.concurrent.TimeUnit;
-//lec 4 slide 11
-class Calculator{
+public class Callculator{
 	
 public static void main(String[] args ){ 
-	System.out.println("The result of the sum is: "+sumNumbers());
+	System.out.println("The result of the sum is: "+sumNumbers());		//1. Inside in sumNumbers()  we throw the exceptions and catch it 
 	double value1=0,value2=0;
-	Calculator calc_obj = new Calculator("Peter");
+	Callculator calc_obj = new Callculator("Peter");
 				calc_obj.calcs_int();
-	try {
-		 value1=calc_obj.readDouble();
-		 value2=calc_obj.readDouble2();
+	try {																//2. The method readDouble() throws Exception and catch them in this block of code.
+		 value1=calc_obj.readDouble();		//Throws Exception
+		 value2=calc_obj.readDouble2();		//Throws MyException
 		// for (int i=0; i<10; i++) {
 		//		System.out.println("The process runs. "+i);}
-	} catch (MyException e2) {					// We catch two different exceptions. Our exception has also a constructor which can also make work.
-		// TODO Auto-generated catch block		// The body of catch declares what will happen after we catch this specific exception.
-		value2=100;
-		//e2.printStackTrace();
+	} catch (MyException e2) {					// We catch two different exceptions. 1st Our exception has also a constructor which can also work.											
+		value2=100;								// The body of catch declares what will happen after we catch this specific exception.
+		//e2.printStackTrace();					// So we see that we didn't have a value (cause of exception) for the value2 and now we set it equal to 100.
 	}
-	catch (Exception e) {
-		// TODO Auto-generated catch block
+	catch (Exception e) {						//We catch two different types of exceptions. 2nd type of exception.
 		value1=150;
-		try {
+		try {									//This is a nested exception.
 			value2=calc_obj.readDouble2();
-		} catch (MyException e1) {
-			// TODO Auto-generated catch block
+		} catch (MyException e1) {		
 			//e1.printStackTrace();
 			value2=200;
 		}
@@ -40,20 +38,19 @@ public static void main(String[] args ){
 
 	System.out.println("Finally, the value1 is: "+value1);
 	System.out.println("Finally, the value2 is: "+value2);
+	
 /*	for (int i=0; i<10; i++) {
 		System.out.println("The process runs after the exception normally. "+i);
 		try {
 			TimeUnit.SECONDS.sleep(1);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 	}*/
 }
 	
-Calculator(String name){System.out.println("Calculator constructor! Hi "+ name);}
-Calculator(String name, int num){System.out.println("Calculator constructor! Hi "+ name);}
+Callculator(String name){System.out.println("Calculator constructor! Hi "+ name);}
+Callculator(String name, int num){System.out.println("Calculator constructor! Hi "+ name);}
 	
 @SuppressWarnings("unused")
 private void calcs_line() {
@@ -115,18 +112,20 @@ public static double readDouble3() throws MyException, Exception{
 	if (in.hasNextDouble()) {
 		return in.nextDouble();
 	} else if (in.hasNext() && in.next().equals("=")){
-		throw new MyException();  
+		throw new MyException();  							//Here we throw the special exception.
 	}
 	else{
 		throw new Exception("Not a number");
-	}
-	
+		
+		
+	}	
 }
 
 public static double sumNumbers() {
 	double sum = 0;
 	while(true) {
-		try {System.out.print("Enter a number: ");
+		try {
+			System.out.print("Enter a number: ");
 			sum +=readDouble3();
 		} catch (MyException ex) {
 			break;
