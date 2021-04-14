@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class StreamsExample {
 public static void main(String Args[]) throws Exception {
 	
-	setOutExample("file1.txt");			//It writes a String in a File. 
-	//setOutExample("folderEx");		//If the file exists but is a directory rather than a regular file/ cannot be created/ cannot be opened for any other reason: then a [FileNotFoundException is thrown]
+	//setOutExample("file1.txt");			//It writes a String in a File. 
+	//setOutExample("folderEx.txt");		//If the file exists but is a directory rather than a regular file/ cannot be created/ cannot be opened for any other reason: then a [FileNotFoundException is thrown]
 	//setInKeyboard();					//The input is from keyboard.
 	//setInFile(); 						//The input is from File.
-	//setErrFile();						//We redirect errors to File.
+	setErrFile();						//We redirect errors to File.
 }
 
 public static void setOutExample(String fileName) {
@@ -24,7 +24,6 @@ public static void setOutExample(String fileName) {
 	try {
 		f = new FileOutputStream(fileName);  		//Creates a file output stream to write to the file with the specified name.
 	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
 		System.err.println("Got an error: " + e);	//The "standard" error output stream.
 		//e.printStackTrace();
 	} 
@@ -36,8 +35,9 @@ public static void setOutExample(String fileName) {
 public static void setInKeyboard() {
     @SuppressWarnings("resource")
 	Scanner sc = new Scanner(System.in);//Scanner  produces values scanned from the specified input stream (system.in). 
-    System.out.println("Printing the file passed in:");
-    while(sc.hasNextLine()) System.out.println(sc.nextLine().toUpperCase());
+    System.out.println("Printing the text passed in:");
+    while(sc.hasNextLine()) 
+    	System.out.println(sc.nextLine().toUpperCase());
     sc.close();
 }
 
@@ -52,9 +52,9 @@ public static void setInFile() throws IOException {
 
     System.out.println("-- reading from System.in --");
 
-    byte[] data = new byte[1000];
-    System.in.read(data);
-    System.out.println(new String(data));
+    byte[] data = new byte[1000];			//When we read we fill the array of 1k bytes
+    System.in.read(data);					//We read the data from in stream.
+    System.out.println(new String(data));	//And print the data to out stream.
 }
 
 public static void setErrFile() throws Exception {

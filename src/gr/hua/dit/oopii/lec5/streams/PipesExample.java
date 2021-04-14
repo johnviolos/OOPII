@@ -6,8 +6,8 @@ import java.io.PipedOutputStream;
 
 public class PipesExample {
 	public static void main(String[] args) throws IOException {
-		//pipeWriteRead();
-		readWithBuffer();
+		pipeWriteRead();
+		//readWithBuffer();
 	}
 	
 public static void pipeWriteRead()  throws IOException { 

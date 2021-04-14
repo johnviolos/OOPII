@@ -11,9 +11,9 @@ import java.util.Set;
 public class CompareFourCollections {
 public static void main(String[] args) {
 	//listCollection();
-	hashtableCollection();
+	//hashtableCollection();
 	//multiSetCollection();
-	//setCollection();
+	setCollection();
 }
 
 public static void listCollection(){	
@@ -42,7 +42,7 @@ public static void hashtableCollection() {
     weekDaysHashTable.put(6, new String("Friday"));
     weekDaysHashTable.put(7, new String("Saturday"));
     weekDaysHashTable.put(1, new String("Sunday"));
-    //weekDaysHashTable.put(2, new String("Monday"));
+    weekDaysHashTable.put(2, new String("Monday"));
     weekDaysHashTable.put(3, new String("Tuesday"));
     weekDaysHashTable.put(1, new String("Monday"));
     //weekDaysHashTable.put(4, new String("Tuesday"));

@@ -28,7 +28,7 @@ public class HashMapExample {
          @SuppressWarnings("rawtypes")
 		Map.Entry me = (Map.Entry)i.next();
          System.out.print("key: "+me.getKey() + ". ");
-         System.out.print("Class: "+me.getValue().getClass() + ". ");
+         //System.out.print("Class: "+me.getValue().getClass() + ". ");
          System.out.println("value: "+((Shop)me.getValue()).getMessage());
       }
       
@@ -37,7 +37,7 @@ public class HashMapExample {
       
       
       hm.remove("shop2");//We remove a node with the key:shop2
-      System.out.println("shop2 does not exist in the hashMap:\n"+hm.entrySet());
+      System.out.println("\nshop2 does not exist in the hashMap:\n"+hm.entrySet()); //But shop3 exists.
       System.out.println("Available keys: "+hm.keySet());
       System.out.println("Available values: "+hm.values());
    }

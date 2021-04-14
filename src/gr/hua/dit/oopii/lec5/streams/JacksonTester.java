@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -16,8 +17,8 @@ public class JacksonTester {
       ArrayList<Student> arraylist_students = new ArrayList<Student>();
       
       
-      try {
-		   for (int i=20; i<30; i++) {
+     try {
+    	 /*		   for (int i=20; i<30; i++) {
 		         Student student = new Student();
 		         student.setAge(i);
 		         student.setName("name_"+(i-20));
@@ -27,10 +28,12 @@ public class JacksonTester {
 		         Thread.sleep(i);
 		   } 
 		   tester.writeJSON(arraylist_students);
-
-         //arraylist_students = tester.readJSON();
-         //System.out.println("The data of the array list is:\n"+arraylist_students);
-         //System.out.println("The 1st object in the arraylist is: "+arraylist_students.get(1));
+*/
+         arraylist_students = tester.readJSON();
+         System.out.println("The data of the array list is:\n"+arraylist_students);
+         System.out.println("The 1st object in the arraylist is: "+arraylist_students.get(1));
+         System.out.println("The 1st object in the arraylist is: "+arraylist_students.get(2));
+         System.out.println("The 1st object in the arraylist is: "+((Student)arraylist_students.get(1)).getAge());
 		   }
 
 		   catch (JsonParseException e) {
@@ -50,7 +53,7 @@ public class JacksonTester {
    @SuppressWarnings("unchecked")
 public ArrayList<Student> readJSON() throws JsonParseException, JsonMappingException, IOException{
       ObjectMapper mapper = new ObjectMapper();
-	ArrayList<Student>  out_arraylist = mapper.readValue(new File("arraylist.json"), ArrayList.class);
+      ArrayList<Student>  out_arraylist = mapper.readValue(new File("arraylist.json"), mapper.getTypeFactory().constructCollectionType(List.class, Student.class));
       return out_arraylist;
    }
 }

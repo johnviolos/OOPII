@@ -16,8 +16,8 @@ public class ObjectComparison {
         System.out.println(new Simpson("Lisa", 54, 60)
                  .equals(new Object())); */
     
+
     
-        
         ArrayList<Simpson> arrayListOfSimpsons = new ArrayList<Simpson>();
         arrayListOfSimpsons.add(new Simpson("Homer", 35, 120));
         arrayListOfSimpsons.add(new Simpson("Nick", 30, 100));
@@ -48,7 +48,7 @@ public class ObjectComparison {
         }
 
         @Override
-        public boolean equals(Object o) { 
+        public boolean equals(Object o) { //As you can see we don't call the equals(). The methods contains, indexOf, lastindexOf manipulate the equals().
             if (this == o) {
                 return true;
             }
