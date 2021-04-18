@@ -33,7 +33,7 @@ public class JacksonTester {
          System.out.println("The data of the array list is:\n"+arraylist_students);
          System.out.println("The 1st object in the arraylist is: "+arraylist_students.get(1));
          System.out.println("The 1st object in the arraylist is: "+arraylist_students.get(2));
-         System.out.println("The 1st object in the arraylist is: "+((Student)arraylist_students.get(1)).getAge());
+         System.out.println("The Name of 1st student is: "+((Student)arraylist_students.get(1)).getName());
 		   }
 
 		   catch (JsonParseException e) {

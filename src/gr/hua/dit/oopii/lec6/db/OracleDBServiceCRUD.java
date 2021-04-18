@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-
-
 public class OracleDBServiceCRUD {
 	static Connection db_con_obj = null; //A connection (session) with a specific database. SQL statements are executed and results are returned within the context 
 	//of a connection. A Connection object's database is able to provide information describing its tables, its supported SQL grammar, its stored procedures, 
@@ -20,7 +18,7 @@ public class OracleDBServiceCRUD {
 		 
 		try {//We check that the DB Driver is available in our project.		
 			Class.forName("oracle.jdbc.driver.OracleDriver"); //This code line is to check that JDBC driver is available. Or else it will throw an exception. Check it with 2. 
-			System.out.println("Congrats - Seems your MySQL JDBC Driver Registered!"); 
+			System.out.println("Congrats - Seems your oracle JDBC Driver Registered!"); 
 		} catch (ClassNotFoundException e) {
 			System.out.println("Sorry, couldn't found JDBC driver. Make sure you have added JDBC Maven Dependency Correctly");
 			e.printStackTrace();
@@ -38,7 +36,7 @@ public class OracleDBServiceCRUD {
 				System.out.println("Failed to make connection!");
 			}
 		} catch (SQLException e) {
-			System.out.println("MySQL Connection Failed!");
+			System.out.println("Oracle Connection Failed!");
 			e.printStackTrace();
 			return;
 		}

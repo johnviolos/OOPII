@@ -11,9 +11,9 @@ import java.util.Set;
 public class CompareFourCollections {
 public static void main(String[] args) {
 	//listCollection();
-	//hashtableCollection();
+	hashtableCollection();
 	//multiSetCollection();
-	setCollection();
+	//setCollection();
 }
 
 public static void listCollection(){	
@@ -48,6 +48,8 @@ public static void hashtableCollection() {
     //weekDaysHashTable.put(4, new String("Tuesday"));
     weekDaysHashTable.put(9, new String("Monday"));
     weekDaysHashTable.put(10, new String("Tuesday"));
+    weekDaysHashTable.put(120, new String("Monday"));
+    weekDaysHashTable.put(110, new String("Tuesday"));
     System.out.println("\nHashtable keeps order, keeps duplicate values but DOES NOT keep duplicate KEYS, so it does not keep duplicate nodes key-value.");
     System.out.println("Original contents of weekDaysHashTable: " + weekDaysHashTable);
 }

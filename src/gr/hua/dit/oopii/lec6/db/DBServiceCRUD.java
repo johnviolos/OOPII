@@ -43,6 +43,32 @@ public class DBServiceCRUD {
 		}
  
 	}
+	
+	private static void getDataFromDB() {
+		 
+		try {
+			// A simple MySQL Select Query 
+			String getQueryStatement = "SELECT * FROM dt_amount;";		
+			// We make a statement to the connected DBMS. We pass to the statement a query.
+			db_prep_obj = db_con_obj.prepareStatement(getQueryStatement); 
+			
+			// Execute the Query, and get a java ResultSet
+			ResultSet rs = db_prep_obj.executeQuery(); 
+			
+			// Let's iterate through the java ResultSet
+			while (rs.next()) {
+				Integer id = rs.getInt("ID");
+				Float value = rs.getFloat("VALUE");
+				System.out.println("id: "+id+" value: "+value); // Simply Print the results				
+			}
+ 
+		} catch (
+ 
+		SQLException e) {
+			e.printStackTrace();
+		} 
+	}
+	
 	private static void getDataFromDBwith2Queries() {
 		 
 		try {
@@ -64,14 +90,15 @@ public class DBServiceCRUD {
 				//Integer id = rs.getInt("ID");
 				String uid = rs.getString("UID");//Retrieves the value of the designated column in the current row of this ResultSet object as a String in the Java programming language.
 				Integer dateKey = rs.getInt("DATE_OF_BIRTH_ID"); //We took the key based on which we will make the 2nd query.
-				String getQueryDate = "SELECT * FROM dt_date WHERE id="+dateKey+";";	//We make the 2nd query
+				
+				//We make the 2nd query
+				String getQueryDate = "SELECT * FROM dt_date WHERE id="+dateKey+";";				
 				db_prep_obj = db_con_obj.prepareStatement(getQueryDate); 
 				ResultSet rs2 = db_prep_obj.executeQuery();
 				while (rs2.next()) {
 					Integer year = rs2.getInt("YEAR");
 					Integer month = rs2.getInt("MONTH");
-					Integer day = rs2.getInt("DAY");
-					
+					Integer day = rs2.getInt("DAY");					
 					System.out.println("Patient: "+uid+" Date of birth Year: "+year+ " Month: "+month+ " Day: "+day);
 				}
 			}
@@ -82,31 +109,7 @@ public class DBServiceCRUD {
  
 	}
 	
-	private static void getDataFromDB() {
-		 
-		try {
-			// A simple MySQL Select Query 
-			String getQueryStatement = "SELECT * FROM dt_amount;";		
-			// We make a statement to the connected DBMS. We pass to the statement a query.
-			db_prep_obj = db_con_obj.prepareStatement(getQueryStatement); 
- 
-			// Execute the Query, and get a java ResultSet
-			ResultSet rs = db_prep_obj.executeQuery(); 
-			
-			// Let's iterate through the java ResultSet
-			while (rs.next()) {
-				Integer id = rs.getInt("ID");
-				Float value = rs.getFloat("VALUE");
-				System.out.println("id: "+id+" value: "+value); // Simply Print the results				
-			}
- 
-		} catch (
- 
-		SQLException e) {
-			e.printStackTrace();
-		}
- 
-	}
+
 	
 	private static void getDataFromDBwithJoin() {
 		 
@@ -189,7 +192,7 @@ public class DBServiceCRUD {
 		//getDataFromDB();
 		//getDataFromDBwith2Queries();
 		//getDataFromDBwithJoin();
-		//addDataToDB(76,2022,4,4);
+		//addDataToDB(76,2021,4,4);
 		deleteDataFromDB(2021);
 	}
 }
