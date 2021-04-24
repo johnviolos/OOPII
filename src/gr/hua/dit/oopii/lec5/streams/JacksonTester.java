@@ -53,8 +53,12 @@ public class JacksonTester {
    @SuppressWarnings("unchecked")
 public ArrayList<Student> readJSON() throws JsonParseException, JsonMappingException, IOException{
       ObjectMapper mapper = new ObjectMapper();
+      mapper.enableDefaultTyping();
       ArrayList<Student>  out_arraylist = mapper.readValue(new File("arraylist.json"), mapper.getTypeFactory().constructCollectionType(List.class, Student.class));
       return out_arraylist;
+      
+
+
    }
 }
 

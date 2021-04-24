@@ -43,26 +43,30 @@ public class OracleDBServiceCRUD {
  
 	}
 	private static void ReadData() throws SQLException {
-	db_prep_obj = db_con_obj.prepareStatement("select * from cities");
+	//db_prep_obj = db_con_obj.prepareStatement("select * from cities");
+	db_prep_obj = db_con_obj.prepareStatement("select * from city");
 	ResultSet  rs = db_prep_obj.executeQuery();
 
     while (rs.next()){
-        String cityName = rs.getString("cityName");
-        int museums = rs.getInt("museums");
-        int cafes = rs.getInt("cafes");
-        int restaurants = rs.getInt("restaurants");
-        int bars = rs.getInt("bars");
-        double lat = rs.getDouble("lat");
-        double lon = rs.getFloat("lon");
-        String weather = rs.getString("weather");
-        int wordCount = rs.getInt("wordCount");
-        System.out.println("The data are: "+ cityName + " "+ cafes );
+    	String city_name = rs.getString("CITY_NAME");
+    	String criterion_name = rs.getString("CRITERION_NAME");
+    	System.out.println("The data are: "+ city_name + " "+ criterion_name );
+    	//String cityName = rs.getString("cityName");
+        //int museums = rs.getInt("museums");
+        //int cafes = rs.getInt("cafes");
+        //int restaurants = rs.getInt("restaurants");
+        //int bars = rs.getInt("bars");
+        //double lat = rs.getDouble("lat");
+        //double lon = rs.getFloat("lon");
+        //String weather = rs.getString("weather");
+        //int wordCount = rs.getInt("wordCount");
+        //System.out.println("The data are: "+ cityName + " "+ cafes );
         
     }
 }
 	
 	public static void main(String [] args) throws SQLException {
 		makeJDBCConnection();
-		//ReadData();
+		ReadData();
 		}
 }

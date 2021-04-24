@@ -1,5 +1,5 @@
+//slide 24
 package gr.hua.dit.oopii.lec5.streams;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -19,10 +19,10 @@ public class ObjectInOutStream {
 
 public static void main(String[] args) throws IOException, ClassNotFoundException {
 	//writeObjectShop("shops.dat");
-	//readObjectShop("shops.dat");
+	readObjectShop("shops.dat");
 	
-	//writeCollectionOfObjectShops("collShops.dat");
-	readCollectionOfObjectShops("collShops.dat");
+	writeCollectionOfObjectShops("collShops.dat");
+	//readCollectionOfObjectShops("collShops.dat");
 	
 }	
 
@@ -58,13 +58,10 @@ public static void readObjectShop(String shopFileName) {
 	    System.out.println("The data of the 2nd shop:" + inShop_2);
 	    ois.close();
 	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} catch (IOException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} catch (ClassNotFoundException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 }	
