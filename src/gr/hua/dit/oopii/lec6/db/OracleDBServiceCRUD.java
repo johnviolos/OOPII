@@ -27,7 +27,7 @@ public class OracleDBServiceCRUD {
  
 		try {
 			// DriverManager: The basic service for managing a set of JDBC drivers.	 //We connect to a DBMS.
-			db_con_obj = DriverManager.getConnection("jdbc:oracle:thin:@oracle12c.hua.gr:1521:orcl","username","password");// Returns a connection to the URL.
+			db_con_obj = DriverManager.getConnection("jdbc:oracle:thin:@oracle12c.hua.gr:1521:orcl","username","passowrd");// Returns a connection to the URL.
 			//Attempts to establish a connection to the given database URL. The DriverManager attempts to select an appropriate driver from the set of registered JDBC drivers.
 			if (db_con_obj != null) { 
 				System.out.println("Connection Successful! Enjoy. Now it's time to CRUD data. ");
@@ -43,30 +43,65 @@ public class OracleDBServiceCRUD {
  
 	}
 	private static void ReadData() throws SQLException {
-	//db_prep_obj = db_con_obj.prepareStatement("select * from cities");
-	db_prep_obj = db_con_obj.prepareStatement("select * from city");
+	db_prep_obj = db_con_obj.prepareStatement("select * from cities");
 	ResultSet  rs = db_prep_obj.executeQuery();
 
     while (rs.next()){
-    	String city_name = rs.getString("CITY_NAME");
-    	String criterion_name = rs.getString("CRITERION_NAME");
-    	System.out.println("The data are: "+ city_name + " "+ criterion_name );
-    	//String cityName = rs.getString("cityName");
-        //int museums = rs.getInt("museums");
-        //int cafes = rs.getInt("cafes");
-        //int restaurants = rs.getInt("restaurants");
-        //int bars = rs.getInt("bars");
-        //double lat = rs.getDouble("lat");
-        //double lon = rs.getFloat("lon");
-        //String weather = rs.getString("weather");
-        //int wordCount = rs.getInt("wordCount");
-        //System.out.println("The data are: "+ cityName + " "+ cafes );
+    	String city_name = rs.getString("CITY_NAME_COUNTRY_INITIALS");
+    	double lat = rs.getDouble("LAT");
+        double lon = rs.getDouble("LON");
+        int term_1 = rs.getInt("TERM_1");
+        int term_2 = rs.getInt("TERM_2");
+        int term_3 = rs.getInt("TERM_3");
+        int term_4 = rs.getInt("TERM_4");
+        int term_5 = rs.getInt("TERM_5");
+        int term_6 = rs.getInt("TERM_6");
+        int term_7 = rs.getInt("TERM_7");
+        int term_8 = rs.getInt("TERM_8");
+        int term_9 = rs.getInt("TERM_9");
+        int term_10 = rs.getInt("TERM_10");
+
+        System.out.println("The data are: "+ city_name + " "+ lat+ " "+ lon+ " "+ term_1+ " "+ term_2+ " "+ term_3+ " "+ term_4+ " "+ term_5
+        		+ " "+ term_6+ " "+ term_7+ " "+ term_8+ " "+ term_9+ " "+ term_10);
         
     }
 }
 	
+	private static void addDataToDB(String cityNameInitials, double lat, double lon, int term_1, int term_2, int term_3, int term_4, int term_5, int term_6, 
+			int term_7, int term_8, int term_9, int term_10) {
+		 
+		try {
+			String insertQueryStatement = "INSERT  INTO  CITIES  VALUES  (?,?,?,?,?,?,?,?,?,?,?,?,?)";			
+			db_prep_obj = db_con_obj.prepareStatement(insertQueryStatement);
+			db_prep_obj.setString(1, cityNameInitials);//.setInt(1, newKey);//.setString
+			db_prep_obj.setDouble(2, lat);//.setInt(2, year);
+			db_prep_obj.setDouble(3, lon);
+			db_prep_obj.setInt(4, term_1);
+			db_prep_obj.setInt(5, term_2);
+			db_prep_obj.setInt(6, term_3);
+			db_prep_obj.setInt(7, term_4);
+			db_prep_obj.setInt(8, term_5);
+			db_prep_obj.setInt(9, term_6);
+			db_prep_obj.setInt(10, term_7);
+			db_prep_obj.setInt(11, term_8);
+			db_prep_obj.setInt(12, term_9);
+			db_prep_obj.setInt(13, term_10);			
+			// execute insert SQL statement Executes the SQL statement in this PreparedStatement object, which must be an SQL Data Manipulation Language (DML) statement
+			int numRowChanged = db_prep_obj.executeUpdate(); //either (1) the row count for SQL Data Manipulation Language (DML) statements or (2) 0 for SQL statements that return nothing
+			System.out.println("Rows "+numRowChanged+" changed.");
+			
+		} catch (
+ 
+		SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String [] args) throws SQLException {
 		makeJDBCConnection();
+		addDataToDB("Rome_IT", 41.8947, 12.4839, 1,2,3,4,5,6,7,8,9,10);
+		addDataToDB("Athens_GR", 37.9795, 23.7162, 1,2,3,4,5,5,5,5,5,5);
+		addDataToDB("London_GB", 51.5085, -0.1257, 1,1,1,1,1,6,7,8,9,10);
 		ReadData();
 		}
 }
