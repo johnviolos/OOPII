@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class OracleDBServiceCRUD {
 	static Connection db_con_obj = null; //A connection (session) with a specific database. SQL statements are executed and results are returned within the context 
 	//of a connection. A Connection object's database is able to provide information describing its tables, its supported SQL grammar, its stored procedures, 
@@ -30,8 +29,7 @@ public class OracleDBServiceCRUD {
 			db_con_obj = DriverManager.getConnection("jdbc:oracle:thin:@oracle12c.hua.gr:1521:orcl","username","passowrd");// Returns a connection to the URL.
 			//Attempts to establish a connection to the given database URL. The DriverManager attempts to select an appropriate driver from the set of registered JDBC drivers.
 			if (db_con_obj != null) { 
-				System.out.println("Connection Successful! Enjoy. Now it's time to CRUD data. ");
-				
+				System.out.println("Connection Successful! Enjoy. Now it's time to CRUD data. ");				
 			} else {
 				System.out.println("Failed to make connection!");
 			}
@@ -62,19 +60,17 @@ public class OracleDBServiceCRUD {
         int term_10 = rs.getInt("TERM_10");
 
         System.out.println("The data are: "+ city_name + " "+ lat+ " "+ lon+ " "+ term_1+ " "+ term_2+ " "+ term_3+ " "+ term_4+ " "+ term_5
-        		+ " "+ term_6+ " "+ term_7+ " "+ term_8+ " "+ term_9+ " "+ term_10);
-        
+        		+ " "+ term_6+ " "+ term_7+ " "+ term_8+ " "+ term_9+ " "+ term_10);        
     }
 }
 	
 	private static void addDataToDB(String cityNameInitials, double lat, double lon, int term_1, int term_2, int term_3, int term_4, int term_5, int term_6, 
-			int term_7, int term_8, int term_9, int term_10) {
-		 
+			int term_7, int term_8, int term_9, int term_10) {		 
 		try {
 			String insertQueryStatement = "INSERT  INTO  CITIES  VALUES  (?,?,?,?,?,?,?,?,?,?,?,?,?)";			
 			db_prep_obj = db_con_obj.prepareStatement(insertQueryStatement);
-			db_prep_obj.setString(1, cityNameInitials);//.setInt(1, newKey);//.setString
-			db_prep_obj.setDouble(2, lat);//.setInt(2, year);
+			db_prep_obj.setString(1, cityNameInitials);
+			db_prep_obj.setDouble(2, lat);
 			db_prep_obj.setDouble(3, lon);
 			db_prep_obj.setInt(4, term_1);
 			db_prep_obj.setInt(5, term_2);
@@ -88,10 +84,8 @@ public class OracleDBServiceCRUD {
 			db_prep_obj.setInt(13, term_10);			
 			// execute insert SQL statement Executes the SQL statement in this PreparedStatement object, which must be an SQL Data Manipulation Language (DML) statement
 			int numRowChanged = db_prep_obj.executeUpdate(); //either (1) the row count for SQL Data Manipulation Language (DML) statements or (2) 0 for SQL statements that return nothing
-			System.out.println("Rows "+numRowChanged+" changed.");
-			
-		} catch (
- 
+			System.out.println("Rows "+numRowChanged+" changed.");			
+		} catch ( 
 		SQLException e) {
 			e.printStackTrace();
 		}

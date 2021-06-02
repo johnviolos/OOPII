@@ -15,13 +15,20 @@ public class TestFrame extends JFrame {
 	JPasswordField pf; 
 	JScrollPane jsp; 
 	public TestFrame() {
-tf = new JTextField(); ta = new JTextArea(); ta.setText("Your Text will appear"); ta.append("\nhere:\n");
-pf = new JPasswordField("hidden");
-jsp = new JScrollPane(); jsp.getViewport().add(ta); 
-this.setLayout(new GridLayout(3, 3)); this.getContentPane().add(tf); this.getContentPane().add(jsp); this.getContentPane().add(pf);
-String password=pf.getText();
-ta.append(password); this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-} 
+		tf = new JTextField(); ta = new JTextArea(); 
+		ta.setText("Your Text will appear"); 
+		ta.append("\nhere:\n");
+		pf = new JPasswordField("hidden");
+		jsp = new JScrollPane(); 
+		jsp.getViewport().add(ta); 
+		this.setLayout(new GridLayout(3, 1)); 
+		this.getContentPane().add(tf); 
+		this.getContentPane().add(jsp); 
+		this.getContentPane().add(pf);
+		String password=pf.getText();
+		ta.append(password); 
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	} 
 	
 	public static void main(String[] args) {TestFrame tf = new TestFrame();
 	tf.setSize(1600,800); 

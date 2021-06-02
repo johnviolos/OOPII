@@ -15,7 +15,8 @@ import javax.swing.WindowConstants;
 public class JFrameExample {
 	public static void main(String[] args) {
 		//setVisible(true);
-		JFrame f = new JFrame("Frame title"); JPanel p = new JPanel( );
+		JFrame f = new JFrame("Frame title"); 
+		JPanel p = new JPanel( );
 		JButton b = new JButton("press me");
 		p.add(b);
 		f.setContentPane(p);

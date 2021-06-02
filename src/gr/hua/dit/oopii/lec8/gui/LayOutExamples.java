@@ -1,5 +1,5 @@
 package gr.hua.dit.oopii.lec8.gui;
-//slide 8
+//slide 8 and slide 22
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Label;
@@ -17,8 +17,8 @@ public static void main(String[] args) {
 	//FlowLayoutExample a = new FlowLayoutExample();
 	//BorderLayoutExample a = new BorderLayoutExample();
     GridLayoutExample a = new GridLayoutExample();
-    //GridBagLayoutExample a = new GridBagLayoutExample();
-    //CardLayoutExample a = new CardLayoutExample();   
+    //GridBagLayoutExample a = new GridBagLayoutExample();	//places components in a grid of rows and columns, allowing specified components to span multiple rows or columns. Not all rows necessarily have the same height
+    //CardLayoutExample a = new CardLayoutExample();    // only one component is visible at a time. It treats each component as a card that is why it is known as CardLayout.
 }
 
 public static class FlowLayoutExample extends JFrame {
@@ -32,7 +32,7 @@ public static class FlowLayoutExample extends JFrame {
         setLayout(g);								//Sets the layout manager for this container.
         setTitle("Flow Layout");
         setSize(600, 300);
-        Button bt1= new Button("Button 1");
+        //Button bt1= new Button("Button 1");
        
         add(new Button("Button 1"));
         add(new Button("Button 2"));
@@ -50,9 +50,10 @@ public static class BorderLayoutExample extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE); 		//the operation which should be performed when the user closes the frame
 
         BorderLayout b = new BorderLayout();			//Constructs a new border layout with no gaps between components.
+        setLayout(b);
         setTitle("Border Layout");						//Sets the title for this frame to the specified string.
-
         setSize(300, 300);								//Resizes this component so that it has width width and height height.
+       
         add(new Button("North"), BorderLayout.NORTH);	//Adds the specified component to the end of this container
         add(new Button("South"), BorderLayout.SOUTH);
         add(new Button("East"), BorderLayout.EAST);
@@ -81,14 +82,15 @@ public  GridLayoutExample() {
 }
 }
 
-public static class GridBagLayoutExample extends JFrame {
+public static class GridBagLayoutExample extends JFrame { //places components in a grid of rows and columns, allowing specified components to span multiple rows or columns. Not all rows necessarily have the same height
     public GridBagLayoutExample() {
+        setVisible(true);
         setSize(300, 300);
         setPreferredSize(getSize());
-        setVisible(true);
+ 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         GridBagLayout g = new GridBagLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
+        GridBagConstraints gbc = new GridBagConstraints();	//specifies constraints for components that are laid out using the GridBagLayout class
         setLayout(g);
         setTitle("GridBag Layout");
 
@@ -100,11 +102,12 @@ public static class GridBagLayoutExample extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 0;
         this.add(new Button("Button 1"), gbc);
-
+        
         gbc.gridx = 1;
         gbc.gridy = 0;
         this.add(new Button("Button 2"), gbc);
 
+        
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.ipady = 20;
         gbc.gridx = 0;
@@ -115,16 +118,17 @@ public static class GridBagLayoutExample extends JFrame {
         gbc.gridy = 1;
         this.add(new Button("Button 4"), gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 2;
+
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = 2;
+        gbc.gridx = 0;
+        gbc.gridy = 2;
         this.add(new Button("Button 5"), gbc);
 
     }
 }
 
-public static class CardLayoutExample extends JFrame {
+public static class CardLayoutExample extends JFrame { // CardLayout class manages the components in such a manner that only one component is visible at a time. It treats each component as a card that is why it is known as CardLayout.
 
 
     public CardLayoutExample() {
@@ -138,6 +142,8 @@ public static class CardLayoutExample extends JFrame {
 
         setSize(300, 300);
         add(new Button("Button 1"));
+        g.next(rootPane);
+               
         add(new Button("Button 2"));
         add(new Button("Button 3"));
         add(new Button("Button 4"));

@@ -20,28 +20,6 @@ public class BoxesExample {
 	//jCheckBox();
 	jList();
 	}
-	
-public static void  jCheckBox() {
-	JPanel myPanel=new JPanel();
-
-	
-	myPanel.add(new JCheckBox("case 1"));
-	myPanel.add(new JCheckBox("case 2"));
-	//Τα JRadioButton λειτουργούν σε ομάδες και μόνο ένα επιλέγεται κάθε φορά.
-	ButtonGroup options = new ButtonGroup( ); 
-	JRadioButton rb1= new JRadioButton("Option 1"); 
-	JRadioButton rb2= new JRadioButton("Option 2"); 
-	options.add(rb1); 
-	options.add(rb2); 
-	myPanel.add(rb1); 
-	myPanel.add(rb2);
-
-	JFrame f = new JFrame("Frame1");
-	f.setContentPane(myPanel);
-	f.setSize(350,80); 
-	f.setVisible(true); 
-}
-
 
 public static void  jComboBox() {    
 	JFrame f = new JFrame("Frame1");
@@ -53,6 +31,26 @@ public static void  jComboBox() {
     f.setLayout(null);    
     f.setSize(400,500);    
     f.setVisible(true);   
+}
+	
+public static void  jCheckBox() {
+	JFrame f = new JFrame("Frame1");
+	JPanel myPanel=new JPanel();
+
+	myPanel.add(new JCheckBox("case 1"));
+	myPanel.add(new JCheckBox("case 2"));
+	//Τα JRadioButton λειτουργούν σε ομάδες (ButtonGroup) και μόνο ένα επιλέγεται κάθε φορά.
+	ButtonGroup options = new ButtonGroup( ); 
+	JRadioButton rb1= new JRadioButton("Option 1"); 
+	JRadioButton rb2= new JRadioButton("Option 2"); 
+	options.add(rb1); 
+	options.add(rb2); 
+	myPanel.add(rb1); 
+	myPanel.add(rb2);
+	
+	f.setContentPane(myPanel);
+	f.setSize(350,80); 
+	f.setVisible(true); 
 }
 	
 	
@@ -75,7 +73,7 @@ public static void jList(){
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-    System.out.println(list.getSelectedValuesList().get(0));
+    System.out.println(list.getSelectedValuesList().get(0)); //What we have selected.
 }
 
 }

@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public class ListExample {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		JFrame f = new JFrame("Frame1");
 		
 		JPanel myPanel=new JPanel();		
@@ -22,15 +22,19 @@ public class ListExample {
 		myPanel.add(new JButton("clear"));
 		myPanel.add(new JButton("copy"));
 		myPanel.add(students);
-	
-		Human h;
-		Object[] selected=students.getSelectedValues(); 
-		for (int i=0;i<selected.length;i++)
-			 h=(Human)selected[i];	
-		
 		f.setContentPane(myPanel);
 		f.setSize(550,280); 
 		f.setVisible(true); 
+		
+		Thread.sleep(4000);
+		Human h;
+		Object[] selected=students.getSelectedValuesList().toArray(); 
+		for (int i=0;i<selected.length;i++) {
+			 h=(Human)selected[i];
+			System.out.println(((Human)selected[i]).toString());}
+				
+		
+
 	}
 	
 	

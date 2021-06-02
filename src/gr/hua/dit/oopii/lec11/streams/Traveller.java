@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * The Traveller class sums up all the traveller's preferences.
  * Every Traveller object created represents a unique traveller
- * and stores his/her list of key points for a great destination along with the traveller's current latitude and longtitude.
+ * and stores his/her list of key points for a great destination along with the traveller's current latitude and longitude.
  */
 public class Traveller implements Comparable<Traveller> , Serializable {
     private static final long serialVersionUID = 1L;
@@ -23,16 +23,16 @@ public class Traveller implements Comparable<Traveller> , Serializable {
     //constructor 1
 
     /**
-     * Constructor for Travellers
+     * Constructor for Traveller
      *
      * @param name     The full name of the Traveller
      * @param age      The age of the Traveller
-     * @param museum   If the Traveller care about museums or not
-     * @param sight    If the Traveller is into sightseeing or not
-     * @param bar      If the Traveller wants to experience the destination's night life or not
-     * @param forest   If the Traveller wants to visit ny big forests or not
+     * @param museum   If the Traveller wants museums.
+     * @param sight    If the Traveller wants sightseeing.
+     * @param bar      If the Traveller wants bars
+     * @param forest   If the Traveller wants to visit forests or not
      * @param lake     If the Traveller wants to see any lakes
-     * @param zoo      if the Traveller wants to visit any zoos or cares bout animals or not
+     * @param zoo      if the Traveller wants to visit zoos
      * @param seaside  If the Traveller wants to visit a city near the seaside or not
      * @param mountain If the Traveller wants to visit a city of a higher altitude or not
      */
@@ -103,96 +103,7 @@ public class Traveller implements Comparable<Traveller> , Serializable {
         return similarity;
     }
 
-    /**
-     * Will return the degree of similarity between a given city and the travellers's interests.
-     *
-     * @param city the candidate destination to check for similarity
-     * @return the degree of similarity between Traveller and given City
-     */
-   /* public double estimateSimilarity(City city) { //Euclidean implementation
-        int bothAB = 0, onlyA = 0, onlyB = 0, neitherAB = 0;
 
-        //bothAB
-        bothAB = checkBothAB(city.getZoo(), get_Criteria_No(5), bothAB);
-        bothAB = checkBothAB(city.getBar(), get_Criteria_No(2), bothAB);
-        bothAB = checkBothAB(city.getForest(), get_Criteria_No(3), bothAB);
-        bothAB = checkBothAB(city.getSight(), get_Criteria_No(1), bothAB);
-        bothAB = checkBothAB(city.getLake(), get_Criteria_No(4), bothAB);
-        bothAB = checkBothAB(city.getMountain(), get_Criteria_No(7), bothAB);
-        bothAB = checkBothAB(city.getMuseum(), get_Criteria_No(0), bothAB);
-        bothAB = checkBothAB(city.getSeaside(), get_Criteria_No(6), bothAB);
-        //System.out.println("Traveller bothAB Variable is: "+bothAB);
-
-        //onlyA
-        onlyA = checkOnlyA(city.getZoo(), get_Criteria_No(5), onlyA);
-        onlyA = checkOnlyA(city.getBar(), get_Criteria_No(2), onlyA);
-        onlyA = checkOnlyA(city.getForest(), get_Criteria_No(3), onlyA);
-        onlyA = checkOnlyA(city.getSight(), get_Criteria_No(1), onlyA);
-        onlyA = checkOnlyA(city.getLake(), get_Criteria_No(4), onlyA);
-        onlyA = checkOnlyA(city.getMountain(), get_Criteria_No(7), onlyA);
-        onlyA = checkOnlyA(city.getMuseum(), get_Criteria_No(0), onlyA);
-        onlyA = checkOnlyA(city.getSeaside(), get_Criteria_No(6), onlyA);
-        //System.out.println("Traveller onlyA Variable is: "+onlyA);
-
-        //onlyB
-        onlyB = checkOnlyB(city.getZoo(), get_Criteria_No(5), onlyB);
-        onlyB = checkOnlyB(city.getBar(), get_Criteria_No(2), onlyB);
-        onlyB = checkOnlyB(city.getForest(), get_Criteria_No(3), onlyB);
-        onlyB = checkOnlyB(city.getSight(), get_Criteria_No(1), onlyB);
-        onlyB = checkOnlyB(city.getLake(), get_Criteria_No(4), onlyB);
-        onlyB = checkOnlyB(city.getMountain(), get_Criteria_No(7), onlyB);
-        onlyB = checkOnlyB(city.getMuseum(), get_Criteria_No(0), onlyB);
-        onlyB = checkOnlyB(city.getSeaside(), get_Criteria_No(6), onlyB);
-        //System.out.println("Traveller onlyB Variable is: "+onlyB);
-
-        //neitherAB
-        neitherAB = checkNeitherAB(city.getZoo(), get_Criteria_No(5), neitherAB);
-        neitherAB = checkNeitherAB(city.getBar(), get_Criteria_No(2), neitherAB);
-        neitherAB = checkNeitherAB(city.getForest(), get_Criteria_No(3), neitherAB);
-        neitherAB = checkNeitherAB(city.getSight(), get_Criteria_No(1), neitherAB);
-        neitherAB = checkNeitherAB(city.getLake(), get_Criteria_No(4), neitherAB);
-        neitherAB = checkNeitherAB(city.getMountain(), get_Criteria_No(7), neitherAB);
-        neitherAB = checkNeitherAB(city.getMuseum(), get_Criteria_No(0), neitherAB);
-        neitherAB = checkNeitherAB(city.getSeaside(), get_Criteria_No(6), neitherAB);
-        //System.out.println("Traveller neither Variable is: "+neitherAB);
-
-        return Math.sqrt((bothAB + neitherAB) / (double) (onlyA + onlyB + bothAB + neitherAB));
-    }
-
-    *//**
-     * @param cities is the ArrayList containing all given cities
-     * @return the position in the ArrayList of the city with the highest degree of similarity
-     *//*
-    public City compareCities(ArrayList<City> cities) {
-        double highestSimilarity = -1;
-        int i, array_index = -1;
-        for (i = 0; i < cities.size(); i++) {
-            if (estimateSimilarity(cities.get(i)) > highestSimilarity) {
-                highestSimilarity = estimateSimilarity(cities.get(i));
-                array_index = i;
-            }
-        }
-        return cities.get(array_index);
-    }
-
-    *//**
-     * This method overrides the method CompareCities in cases where we want to exclude cities that have rainy weather
-     *
-     * @param cities array list of all the cities
-     * @param rain   boolean value containing if rain occurs
-     * @return the position in the ArrayList of the city with the highest degree of similarity
-     *//*
-    public City compareCities(ArrayList<City> cities, boolean rain) {
-        double highestSimilarity = -1;
-        int i, array_index = -1;
-        for (i = 0; i < cities.size(); i++) {
-            if (estimateSimilarity(cities.get(i)) > highestSimilarity && !rain) {
-                highestSimilarity = estimateSimilarity(cities.get(i));
-                array_index = i;
-            }
-        }
-        return cities.get(array_index);
-    }*/
 
 
     @Override //compare with age
@@ -325,5 +236,95 @@ public class Traveller implements Comparable<Traveller> , Serializable {
     public void setVisit(String visit) {
         this.visit = visit;
     }
+    /**
+     * Will return the degree of similarity between a given city and the travellers's interests.
+     *
+     * @param city the candidate destination to check for similarity
+     * @return the degree of similarity between Traveller and given City
+     */
+   /* public double estimateSimilarity(City city) { //Euclidean implementation
+        int bothAB = 0, onlyA = 0, onlyB = 0, neitherAB = 0;
+
+        //bothAB
+        bothAB = checkBothAB(city.getZoo(), get_Criteria_No(5), bothAB);
+        bothAB = checkBothAB(city.getBar(), get_Criteria_No(2), bothAB);
+        bothAB = checkBothAB(city.getForest(), get_Criteria_No(3), bothAB);
+        bothAB = checkBothAB(city.getSight(), get_Criteria_No(1), bothAB);
+        bothAB = checkBothAB(city.getLake(), get_Criteria_No(4), bothAB);
+        bothAB = checkBothAB(city.getMountain(), get_Criteria_No(7), bothAB);
+        bothAB = checkBothAB(city.getMuseum(), get_Criteria_No(0), bothAB);
+        bothAB = checkBothAB(city.getSeaside(), get_Criteria_No(6), bothAB);
+        //System.out.println("Traveller bothAB Variable is: "+bothAB);
+
+        //onlyA
+        onlyA = checkOnlyA(city.getZoo(), get_Criteria_No(5), onlyA);
+        onlyA = checkOnlyA(city.getBar(), get_Criteria_No(2), onlyA);
+        onlyA = checkOnlyA(city.getForest(), get_Criteria_No(3), onlyA);
+        onlyA = checkOnlyA(city.getSight(), get_Criteria_No(1), onlyA);
+        onlyA = checkOnlyA(city.getLake(), get_Criteria_No(4), onlyA);
+        onlyA = checkOnlyA(city.getMountain(), get_Criteria_No(7), onlyA);
+        onlyA = checkOnlyA(city.getMuseum(), get_Criteria_No(0), onlyA);
+        onlyA = checkOnlyA(city.getSeaside(), get_Criteria_No(6), onlyA);
+        //System.out.println("Traveller onlyA Variable is: "+onlyA);
+
+        //onlyB
+        onlyB = checkOnlyB(city.getZoo(), get_Criteria_No(5), onlyB);
+        onlyB = checkOnlyB(city.getBar(), get_Criteria_No(2), onlyB);
+        onlyB = checkOnlyB(city.getForest(), get_Criteria_No(3), onlyB);
+        onlyB = checkOnlyB(city.getSight(), get_Criteria_No(1), onlyB);
+        onlyB = checkOnlyB(city.getLake(), get_Criteria_No(4), onlyB);
+        onlyB = checkOnlyB(city.getMountain(), get_Criteria_No(7), onlyB);
+        onlyB = checkOnlyB(city.getMuseum(), get_Criteria_No(0), onlyB);
+        onlyB = checkOnlyB(city.getSeaside(), get_Criteria_No(6), onlyB);
+        //System.out.println("Traveller onlyB Variable is: "+onlyB);
+
+        //neitherAB
+        neitherAB = checkNeitherAB(city.getZoo(), get_Criteria_No(5), neitherAB);
+        neitherAB = checkNeitherAB(city.getBar(), get_Criteria_No(2), neitherAB);
+        neitherAB = checkNeitherAB(city.getForest(), get_Criteria_No(3), neitherAB);
+        neitherAB = checkNeitherAB(city.getSight(), get_Criteria_No(1), neitherAB);
+        neitherAB = checkNeitherAB(city.getLake(), get_Criteria_No(4), neitherAB);
+        neitherAB = checkNeitherAB(city.getMountain(), get_Criteria_No(7), neitherAB);
+        neitherAB = checkNeitherAB(city.getMuseum(), get_Criteria_No(0), neitherAB);
+        neitherAB = checkNeitherAB(city.getSeaside(), get_Criteria_No(6), neitherAB);
+        //System.out.println("Traveller neither Variable is: "+neitherAB);
+
+        return Math.sqrt((bothAB + neitherAB) / (double) (onlyA + onlyB + bothAB + neitherAB));
+    }
+
+    *//**
+     * @param cities is the ArrayList containing all given cities
+     * @return the position in the ArrayList of the city with the highest degree of similarity
+     *//*
+    public City compareCities(ArrayList<City> cities) {
+        double highestSimilarity = -1;
+        int i, array_index = -1;
+        for (i = 0; i < cities.size(); i++) {
+            if (estimateSimilarity(cities.get(i)) > highestSimilarity) {
+                highestSimilarity = estimateSimilarity(cities.get(i));
+                array_index = i;
+            }
+        }
+        return cities.get(array_index);
+    }
+
+    *//**
+     * This method overrides the method CompareCities in cases where we want to exclude cities that have rainy weather
+     *
+     * @param cities array list of all the cities
+     * @param rain   boolean value containing if rain occurs
+     * @return the position in the ArrayList of the city with the highest degree of similarity
+     *//*
+    public City compareCities(ArrayList<City> cities, boolean rain) {
+        double highestSimilarity = -1;
+        int i, array_index = -1;
+        for (i = 0; i < cities.size(); i++) {
+            if (estimateSimilarity(cities.get(i)) > highestSimilarity && !rain) {
+                highestSimilarity = estimateSimilarity(cities.get(i));
+                array_index = i;
+            }
+        }
+        return cities.get(array_index);
+    }*/
 
 }

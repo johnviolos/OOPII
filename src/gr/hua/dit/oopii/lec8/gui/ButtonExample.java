@@ -8,10 +8,11 @@ import javax.swing.JToggleButton;
 
 public class ButtonExample {
 	
-	public static void  main(String args[]) {
-		JButton b= new JButton("OK");
+public static void  main(String args[]) {
+	JButton b= new JButton("OK");
 	
-	JToggleButton tb1= new JToggleButton("ON"); JToggleButton tb2= new JToggleButton("OFF");
+	JToggleButton tb1= new JToggleButton("ON"); 
+	JToggleButton tb2= new JToggleButton("OFF");
 	ButtonGroup buttonGroup = new ButtonGroup(); 
 	tb1.setMnemonic('n'); // Ενεργοποιείται με ALT+n 
 	tb1.setToolTipText("This is the ON button"); 

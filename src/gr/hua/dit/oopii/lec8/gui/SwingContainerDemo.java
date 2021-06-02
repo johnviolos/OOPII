@@ -8,27 +8,27 @@ import javax.swing.border.BevelBorder;
 
 public class SwingContainerDemo {
    private JFrame mainFrame;
+   private JPanel controlPanel;
    private JLabel headerLabel;
    private JLabel statusLabel;
-   private JPanel controlPanel;
    private JLabel msglabel;
 
-   public SwingContainerDemo(){
+   public SwingContainerDemo(){		//Prepare the GUI by the constructor.
       prepareGUI();
    }
    public static void main(String[] args){
       SwingContainerDemo  swingContainerDemo = new SwingContainerDemo();  
       swingContainerDemo.showJPanelDemo();
    }
-   private void prepareGUI(){
+   private void prepareGUI(){											//The constructor creates the JPanel & JLabel objects 
       mainFrame = new JFrame("Java Swing Examples");
       mainFrame.setSize(400,400);
-      mainFrame.setLayout(new GridLayout(3, 1));
+      mainFrame.setLayout(new GridLayout(3, 1));						//The Frame will have three 3 items inside in a grid (3,1). The Frame will have one panel and two labels.
       
-      mainFrame.addWindowListener(new WindowAdapter() {
-         public void windowClosing(WindowEvent windowEvent){
-            System.exit(0);
-         }        
+      mainFrame.addWindowListener(new WindowAdapter() {					//We added a Listener in the mainFrame which extends the WindowAdapter class.
+         public void windowClosing(WindowEvent windowEvent){			//It takes as argument an Anonymous Inner Class.
+            System.exit(0);												//It also override the method windowClossing
+         }        														//So we add functionality on the fly with a class that will be used only one time.
       });
       
       headerLabel = new JLabel("", JLabel.CENTER);        
@@ -44,15 +44,15 @@ public class SwingContainerDemo {
       mainFrame.add(statusLabel);
       mainFrame.setVisible(true);  
    }
-   private void showJPanelDemo(){
-      headerLabel.setText("Container in action: JPanel");      
+   private void showJPanelDemo(){									//The method showJPanelDemo() assign values and content to these components.
+      headerLabel.setText("Container in action: JPanel");      		//The headerLabel and the controlPane exist as class attributes but in this method they will be assigned to concrete objects.
       JPanel panel = new JPanel();
       panel.setBackground(Color.magenta);
       panel.setLayout(new FlowLayout());        
       panel.add(msglabel);
-      BevelBorder bb = new BevelBorder (BevelBorder.RAISED);
-      controlPanel.setBorder(bb);
-      controlPanel.add(panel);        
+      BevelBorder bb = new BevelBorder (BevelBorder.RAISED);		//Here, we create a Border
+      controlPanel.setBorder(bb);									//and set the border to the controlPanel.
+      controlPanel.add(panel);        								//The controlPanel also takes as argument the panel which is a JPanel.
       mainFrame.setVisible(true);      
    }   
 }

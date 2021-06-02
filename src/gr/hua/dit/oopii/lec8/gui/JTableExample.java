@@ -19,9 +19,9 @@ public class JTableExample {
 
 		
 		String[] columnNames = {"First Name", "Last Name", "Age", "Address"}; 
-		Object[][] data = {{"George", "Brown", new Integer(22), "6th Avenue"},
-		{"Mary", "Jones", new Integer(18), "5th Avenue"},
-		{"Bill", "Murray", new Integer(19), "Madison Avenue"}}; 
+		Object[][] data = {{"George", "Brown", 22, "6th Avenue"},
+		{"Mary", "Jones", 18, "5th Avenue"},
+		{"Bill", "Murray", 19, "Madison Avenue"}}; 
 		
 		DefaultTableModel dtm = new DefaultTableModel(data,columnNames); 
 		JTable studentsTable=new JTable(dtm);

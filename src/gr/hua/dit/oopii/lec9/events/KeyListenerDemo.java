@@ -55,7 +55,7 @@ public class KeyListenerDemo {
       controlPanel.add(okButton);    
       mainFrame.setVisible(true);  
    }
-   class CustomKeyListener implements KeyListener{				//2nd Listener activated with Button click.
+   class CustomKeyListener implements KeyListener{				//1st Listener activated with Enter key as defines CustomKeyListener.
       public void keyTyped(KeyEvent e) {
       }
       public void keyPressed(KeyEvent e) {

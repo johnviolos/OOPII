@@ -31,7 +31,7 @@ class CustomDesktopPane extends JDesktopPane
   {  
     for(int  i = 0; i < numFrames ; ++i )   
     {  
-      JInternalFrame jframe = new JInternalFrame("Internal Frame " + i ,  true, true, true, true);  
+      JInternalFrame jframe = new JInternalFrame("Internal Frame " + i ,  true, true, true, true);  //We create the three Internal Frames (windows)
   
       jframe.setBounds(x, y, 250, 85);  
      Container c1 = jframe.getContentPane( ) ;  

@@ -15,8 +15,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class LabelTextExample {
-	public static void main(String[] args) {texts();
+	public static void main(String[] args) {//texts();
 	//labels();
+	texts();
 	}
 	
 	
@@ -27,7 +28,7 @@ public class LabelTextExample {
 		JLabel label3 = new JLabel("JLabel",SwingConstants.RIGHT); 
 		label3.setFont(new Font("Helvetica", Font.BOLD, 18)); 
 		label3.setOpaque(true); label3.setBackground(Color.white);
-		ImageIcon icon = new ImageIcon("java_image.jpg");
+		ImageIcon icon = new ImageIcon("java_image.jpg");				//We add in the label an icon
 		
 		JLabel label4 = new JLabel("JLabel",icon, SwingConstants.RIGHT); 
 		label4.setVerticalTextPosition(SwingConstants.TOP); 
@@ -48,7 +49,7 @@ public class LabelTextExample {
 		JTextField tf1 = new JTextField();
 		JTextField tf2 = new JTextField("text");
 		JTextField tf3 = new JTextField("more text",40); 
-		tf2.getText();
+		//tf2.getText(); //if we want to get the text of a TextField
 		tf1.setText("empty");
 		TextArea ta= new TextArea();
 		ta.append("text"); 

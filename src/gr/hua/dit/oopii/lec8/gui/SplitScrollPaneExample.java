@@ -27,22 +27,24 @@ class SplitScrollPaneExample extends JFrame {
 		final JFrame frame = new JFrame("Scroll Pane Example");
 		 
         // Display the window.
-        frame.setSize(200, 200);
-        frame.setVisible(true);
+        frame.setSize(250, 250);
+       // frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         // set flow layout for the frame
         frame.getContentPane().setLayout(new FlowLayout());
- 
-        JTextArea textArea = new JTextArea(5, 5);
+        
+        JTextArea textArea = new JTextArea(10, 15);
         textArea.setText(sonnet);
         textArea.setVisible(true);
         JScrollPane scrollableTextArea = new JScrollPane(textArea);
         scrollableTextArea.setFocusable(true);
-        scrollableTextArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollableTextArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);		//2scrollbars
         scrollableTextArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
  
         frame.getContentPane().add(scrollableTextArea);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
 	}
 private static String sonnet="Shall I compare thee to a summer's day?\n" + 

@@ -18,9 +18,9 @@ class Animation implements Runnable {
 	
 	
 	public static void main(String args[]) {
-		Animation happy = new Animation();
-		Thread myThread = new Thread( happy );
-		myThread.start( );
+		Animation happy = new Animation();		//Thread
+		Thread myThread = new Thread( happy );	//Controller. The controller takes as input the real thread.
+		myThread.start( );						//And runs it.
 		
 		try {
 			Thread.sleep(5000);
@@ -29,7 +29,8 @@ class Animation implements Runnable {
 			e.printStackTrace();
 		}
 		
-		myThread = new Thread( new Animation() ); myThread.start( );
+		myThread = new Thread( new Animation() ); 	//The controller is connected with another thread.
+		myThread.start( );							//And we run the next thread.
 		
 	}
 }

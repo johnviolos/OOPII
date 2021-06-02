@@ -36,12 +36,12 @@ public static void jOptionPane() {
 	JFrame myFrame = new JFrame("Frame1");
 	myFrame.setSize(1600,800); 
 	myFrame.setVisible(true); 
-	int n = JOptionPane.showConfirmDialog(myFrame, "Is it OK?", "ConfirmDialog", JOptionPane.YES_NO_OPTION);
-	String s = (String)JOptionPane.showInputDialog(myFrame, "Name?");
+	int n = JOptionPane.showConfirmDialog(myFrame, "Is it OK?", "ConfirmDialog", JOptionPane.YES_NO_OPTION);	//n has the option of user in the showConfirmDialog.
+	String s = (String)JOptionPane.showInputDialog(myFrame, "Name?");											//s  is the input String of user in the showInputDialog.
 	JOptionPane.showMessageDialog(myFrame, "Hi!");
 	
 	Object[] options = {"Yes, please", "No way!"};
-	int n2 = JOptionPane.showOptionDialog(myFrame, "Choose", "Choices",
+	int n2 = JOptionPane.showOptionDialog(myFrame, "Choose", "Choices",											//n2 is the option of user in the showOptionDialog.
 	JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,options[0]);
 	
 	try {
@@ -65,7 +65,7 @@ public static void jFileChooser() {
 	int returnVal = fc.showOpenDialog(b);
 	
 	if (returnVal == JFileChooser.APPROVE_OPTION) { // αν ο χρήστης επέλεξε Open
-		File file = fc.getSelectedFile(); //το αρχείο που επέλεξε
+		File file = fc.getSelectedFile(); //το path από το αρχείο που επέλεξε
 		System.out.println("Opening: " + file.getAbsolutePath() + "." ); }
 	else {
 		System.out.println("Open command cancelled by user."); }

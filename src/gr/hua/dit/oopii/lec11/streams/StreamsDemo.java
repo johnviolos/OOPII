@@ -16,42 +16,41 @@ public class StreamsDemo {
       // Count empty strings
       List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
       System.out.println("List: " +strings);
+      
       long count = getCountEmptyStringUsingJava7(strings);
-		
       System.out.println("Empty Strings: " + count);
-      count = getCountLength3UsingJava7(strings);
-		
+      
+      count = getCountLength3UsingJava7(strings);		
       System.out.println("Strings of length 3: " + count);
 		
       //Eliminate empty string
       List<String> filtered = deleteEmptyStringsUsingJava7(strings);
-      System.out.println("Filtered List: " + filtered);
+      System.out.println("Filtered List: " + filtered + "\n");
 		
-      //Eliminate empty string and join using comma.
-      String mergedString = getMergedStringUsingJava7(strings,", ");	//It transform the List collection into a String and separate each object with comma.
+      //It merges all elements into one String.
+      String mergedString = getMergedStringUsingJava7(strings,", ");	//It transforms the List collection into a String and separate each element with an underscore.
       System.out.println("Merged String: " + mergedString);
+      
       List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);		//A new List with Integers.
-		
       //get list of square of distinct numbers
       List<Integer> squaresList = getSquares(numbers);
-      System.out.println("Squares List: " + squaresList);
-      List<Integer> integers = Arrays.asList(1,2,13,4,15,6,17,8,19);
-		
+      System.out.println("Squares List: " + squaresList + "\n");
+      
+      List<Integer> integers = Arrays.asList(1,2,13,4,15,6,17,8,19);	
       System.out.println("List: " +integers);
       System.out.println("Highest number in List : " + getMax(integers));
       System.out.println("Lowest number in List : " + getMin(integers));
       System.out.println("Sum of all numbers : " + getSum(integers));
       System.out.println("Average of all numbers : " + getAverage(integers));
-      System.out.println("Random Numbers: ");
+     
 		
-      //print ten random numbers
       Random random = new Random();
-		
+      System.out.print("Random Numbers: ");
       for(int i = 0; i < 10; i++) {
-         System.out.println(random.nextInt());
+         System.out.println(random.nextInt()+" ");
       }
 		
-      System.out.println("Using Java 8: ");
+      System.out.println("\nUsing Java 8: ");
       System.out.println("List: " +strings);
 		
       count = strings.stream().filter(string->string.isEmpty()).count(); //How many nodes-objs satisfy the filter condition which is string.isEmpty()
@@ -63,7 +62,7 @@ public class StreamsDemo {
       filtered = strings.stream().filter(string ->!string.isEmpty()).collect(Collectors.toList()); // We make a new String Collection (List) with nodes that satisfy string.isEmpty()
       System.out.println("Filtered List: " + filtered);
 		
-      mergedString = strings.stream().filter(string ->!string.isEmpty()).collect(Collectors.joining(", "));  //We make a new String variable with nodes that satisfy string.isEmpty()
+      mergedString = strings.stream().filter(string ->!string.isEmpty()).collect(Collectors.joining("_"));  //We make a new String variable with nodes that satisfy string.isEmpty()
       System.out.println("Merged String: " + mergedString);
 		
       squaresList = numbers.stream().map( i ->i*i).distinct().collect(Collectors.toList());// i to i*i, distinct and make a collection.
@@ -134,14 +133,15 @@ public class StreamsDemo {
          }
       }
       String mergedString = stringBuilder.toString();
-      return mergedString.substring(0, mergedString.length()-2);
+      return (mergedString.substring(0, mergedString.length()-2)).replace(", ","_");
    }
 	
    private static List<Integer> getSquares(List<Integer> numbers) {
       List<Integer> squaresList = new ArrayList<Integer>();
 		
       for(Integer number: numbers) {
-         Integer square = new Integer(number.intValue() * number.intValue());
+ 
+		int square = number.intValue() * number.intValue();
 			
          if(!squaresList.contains(square)) {
             squaresList.add(square);
