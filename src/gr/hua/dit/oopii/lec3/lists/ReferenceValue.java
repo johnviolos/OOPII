@@ -1,10 +1,12 @@
 /** Primitive types pass by value, collections and objects "seem to be passed by reference". 
 * In fact, everything in Java is passed by value because they are pointers.
 * We also have the unmodifiable collections */
-package gr.hua.dit.oopii.lec2.inheritance;
+package gr.hua.dit.oopii.lec3.lists;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import gr.hua.dit.oopii.lec2.inheritance.Human;
 
 //slide 7
 public class ReferenceValue {

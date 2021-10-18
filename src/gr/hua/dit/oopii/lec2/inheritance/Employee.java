@@ -12,9 +12,9 @@ public class Employee extends Human{
 	public void runEmployeeMethod() {
 		System.out.println("A message from Employee.");	
 	}
-	public String getCompleteData() {
-		return super.getCompleteData();
-		//super.private_method();			//But ofcourse we cannot access the private methods of the super-class.
+	public String getCompleteData() {		//We override.
+		return super.getCompleteData();		//and we also call the method of the father.
+		//super.private_method();			//But of course we cannot access the private methods of the super-class.
 	}
 	
 	public static void main(String args[] ){ 

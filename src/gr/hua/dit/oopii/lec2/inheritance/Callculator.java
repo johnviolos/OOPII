@@ -29,16 +29,18 @@ public class Callculator{
 	}
  
 	static int add(int a, int b, int c) {
-		System.out.println("float"); 
+		System.out.println("Three arguments"); 
 		return a+b+c;
 	}
 	
 	public static void main(String[] args ){ 
 		int x=5; int y=6;
-		float k=5.3f; double m=4.5; 
+		float k=5.3f; double m=4.5; //By default, floating-point numbers are double in Java. 32bits 64bits 
+		//In order to store them into a float variable, you need to cast them explicitly or suffix with 'f' or 'F'
+
 		System.out.println("Atrhoisma "+ add(x,y)+"\n"); 
 		System.out.println("Athroisma "+ add(k,m)+"\n"); 
-		System.out.println("Athroisma "+ add(x,m)+"\n");
+		System.out.println("Athroisma "+ add(x,m)+"\n");	//(int,double)->(double,double)
 		System.out.println("Athroisma "+ add(x,10,100)+"\n");
 		
 	} 

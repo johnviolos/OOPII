@@ -10,7 +10,7 @@ public class GarbageCollector_Ex {
 	System.out.println("Object hash code: "+obj.hashCode());   
 	obj = null;   
 	// calling garbage collector    
-	//System.out.println(obj.hashCode());  
+	//System.out.println(obj.hashCode());   //If we call obj.hashCode, we get NullPoinnterException
 	try {
 		Thread.sleep(2000);
 	} catch (InterruptedException e) {

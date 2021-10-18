@@ -42,7 +42,7 @@ public class Human {
 	public static void main(String args[] ){ 
 		
 		Human nonos=new Human(); 					//object nonos
-		Human paidi=new Human(); 					//object paidi
+		Human paidi=new Human(); 					//object paidi The construction gives name "Unknown"
 		nonos.giveName(paidi, "Mary"); 				//nonos object acts on paidi object. The change of obj status will remain.
 		System.out.println("The name of obj paidi is "+paidi.getName()); 
 

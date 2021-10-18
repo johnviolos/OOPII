@@ -1,3 +1,4 @@
+//slide 48
 package gr.hua.dit.oopii.lec2.inheritance;
 
 import java.util.Arrays;
