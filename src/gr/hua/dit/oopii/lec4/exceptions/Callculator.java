@@ -86,7 +86,7 @@ private void calcs_int() {
 }
 
  
-public double readDouble() throws Exception{
+public double readDouble() throws Exception {
 	System.out.print("input1: ");
 	@SuppressWarnings("resource")
 	Scanner in = new Scanner(System.in);

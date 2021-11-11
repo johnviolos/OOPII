@@ -31,7 +31,7 @@ public static void main(String[] Args) {
 	Date date = new Date(file4.lastModified());
 	System.out.println("When did the "+file4.getName()+ " last modified? "+date);
 	
-	File file5 = new File("/Users/johnviolos/eclipse-workspace/OOPII");
+	File file5 = new File("/Users/violos/Files/Coding/eclipse-workspace/OOPII");
 	String[] fileNames= file5.list();
 	System.out.println("\nThe List of files: ");
 	for (int i=0; i<fileNames.length; i++)
@@ -40,7 +40,7 @@ public static void main(String[] Args) {
 			System.out.println();
 		}
 	
-	String userHome = System.getProperty("user.home"); //The path user.home of the user who runs the code 
+	String userHome = System.getProperty("user.dir"); //The path user.home of the user who runs the code 
 	System.out.println("\n\nRelative path: "+userHome);
 	File file6 = new File(""); //Current position
 	System.out.println("What is my path now "+file6.getAbsolutePath());

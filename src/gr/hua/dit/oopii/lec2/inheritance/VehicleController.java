@@ -4,6 +4,10 @@ package gr.hua.dit.oopii.lec2.inheritance;
 
 
 public class VehicleController {
+	
+	public class VehicleController2 {}
+	
+	
 	public static void main(String args[] ){
 		Car objCar = new Car();
 		Bike objBike = new Bike();

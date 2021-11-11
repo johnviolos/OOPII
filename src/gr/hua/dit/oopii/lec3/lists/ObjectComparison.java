@@ -14,7 +14,8 @@ public class ObjectComparison  {
     	list.add(new Simpson("Homer", 35, 120));
     	list.add(new Date());
     	list.add(new String("haha"));
-    	
+    	Date dt = new Date();
+    	System.out.println("new "+dt.getTime());
     	System.out.println(list.get(1));//It can see the method of Object.
     	System.out.println(((Date)list.get(1)).getTime()); // After the casting it can also see the methods of Date class.
     	
@@ -52,7 +53,7 @@ public class ObjectComparison  {
             this.weight = weight;
         }
 
-        @Override
+               @Override
         public boolean equals(Object o) {
             if (this == o) {
                 return true;
