@@ -70,7 +70,7 @@ public static void jFileChooser() {
 	else {
 		System.out.println("Open command cancelled by user."); }
 	
-	fc.showDialog(b, "Save");
+	fc.showDialog(b, "Save");	//We can also have the save button in the JFileCChooser
 	JFrame f = new JFrame("Frame1");
 	f.setContentPane(myPanel);
 	f.setSize(250,80); 

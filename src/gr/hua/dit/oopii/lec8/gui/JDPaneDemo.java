@@ -15,7 +15,7 @@ public class JDPaneDemo extends JFrame
     contentPane.add(desktopPane, BorderLayout.CENTER);  
     desktopPane.display(desktopPane);  
   
-    setTitle("JDesktopPane Example");  
+    setTitle("JDesktopPane CloneList");  
     setSize(300,350);  
     setVisible(true);  
   }  

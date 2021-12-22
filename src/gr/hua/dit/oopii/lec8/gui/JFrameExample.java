@@ -38,9 +38,9 @@ public class JFrameExample {
 	    
 	    JMenu menu2 = new JMenu("Help");
 	    menuBar.add(menu2);
-	    JMenuItem menuItem6 = new JMenuItem(" Help");
-	    JMenuItem menuItem7 = new JMenuItem(" About");
-	    JMenuItem menuItem8 = new JMenuItem(" Search");
+	    JMenuItem menuItem6 = new JMenuItem("Help");
+	    JMenuItem menuItem7 = new JMenuItem("About");
+	    JMenuItem menuItem8 = new JMenuItem("Search");
 
 	    menu2.add(menuItem6);	   
 	    menu2.add(menuItem7);

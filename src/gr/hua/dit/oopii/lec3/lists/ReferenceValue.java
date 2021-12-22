@@ -19,8 +19,8 @@ ReferenceValue(){
 
 ReferenceValue(ReferenceValue in_obj){//Easy way to duplicate an object with a constructor that copies (duplicates) all elements. 
 	this.obj_value=in_obj.obj_value;
-	System.out.println("Argument-object hascode is: " + in_obj.hashCode());
-	System.out.println("The new-created object hascode is: " + this.hashCode());
+	System.out.println("Argument-object hashcode is: " + in_obj.hashCode());
+	System.out.println("The new-created object hashcode is: " + this.hashCode());
 }
 
 public static void passPrimitiveTypes(int number) { //The changes of the primitive types inside the class do not take effect outside the class.
@@ -34,7 +34,7 @@ public static void passObject( ReferenceValue obj , int number) {
 public static void passObject_withNew( ReferenceValue obj) {
 	ReferenceValue object2 = new ReferenceValue();
 	object2.obj_value=100;
-	obj=object2; //The object pointer will not change.
+	obj=object2; //The parameter object pointer will not change.
 }
 
 public static void passArray( int[] in_array) {
@@ -53,37 +53,36 @@ public static void passObject_withfinal(final ReferenceValue obj , final int num
 
 public static void main(String[] args) {
 	int number=5;
-	System.out.println("Before call the func: Primitive types passed by value: "+number);
+	System.out.println("1. Before call the func: Primitive types passed by value: "+number);
 	passPrimitiveTypes(number);	//It adds 10 to the primitive type argument but no changes take place.
-	System.out.println("After call the func: Primitive types passed by value: "+number +"\n");	//Primitive type passed by Value. 
+	System.out.println("1. After call the func: Primitive types passed by value: "+number +"\n");	//Primitive type passed by Value. 
 
 	ReferenceValue object = new ReferenceValue();
-	System.out.println(object.hashCode() + " Before call the func: Objects seems to be passed by \"reference\" "+object.obj_value); //the object's hash code, which is the object's memory address in hexadecimal.
+	System.out.println("2."+object.hashCode() + " Before call the func: Objects seems to be passed by \"reference\" "+object.obj_value); //the object's hash code, which is the object's memory address in hexadecimal.
 	passObject(object,200);
-	System.out.println(object.hashCode() + " After call the func: Objects seems to be passed by \"reference\": "+object.obj_value +"\n"); //Objects seems passed by "Reference". The changes took place.
+	System.out.println("2."+object.hashCode() + " After call the func: Objects seems to be passed by \"reference\": "+object.obj_value +"\n"); //Objects seems passed by "Reference". The changes took place.
 
 	int[] in_array = {11,12,13,14,15};
-	System.out.println(in_array.hashCode() + " Before call the func: Arrays also seem to be passed by \"reference\": "+in_array[0 ] +" "+ in_array[1] +" "+ in_array[2] +" "+ in_array[3] +" "+ in_array[4]);
+	System.out.println("3."+in_array.hashCode() + " Before call the func: Arrays also seem to be passed by \"reference\": "+in_array[0 ] +" "+ in_array[1] +" "+ in_array[2] +" "+ in_array[3] +" "+ in_array[4]);
 	passArray(in_array);
-	System.out.println(in_array.hashCode() + " After call the func: Arrays also seem to be passed by \"reference\": "+in_array[0 ] +" "+ in_array[1] +" "+ in_array[2] +" "+ in_array[3] +" "+ in_array[4]+"\n"); //Objects passed by "Reference".
+	System.out.println("3."+in_array.hashCode() + " After call the func: Arrays also seem to be passed by \"reference\": "+in_array[0 ] +" "+ in_array[1] +" "+ in_array[2] +" "+ in_array[3] +" "+ in_array[4]+"\n"); //Objects passed by "Reference".
 	
 	ReferenceValue object3 = new ReferenceValue(); //Reference to the values of the object. But passed with value thepointer to the object. We cannot change the object that we point.
-	System.out.println(object3.hashCode() + " Before call the func: On the left we have the object's hash code, which is the object's memory address: " +object3.obj_value);
+	System.out.println("4."+object3.hashCode() + " Before call the func: On the left we have the object's hash code, which is the object's memory address: " +object3.obj_value);
 	passObject_withNew(object3); //But we can change the variables of the object that we pass in. Δεν μπορώ να δειξω σε άλλο αντικείμενο. O pointer θα δείχνει πάντα στο ιδιο object. 
-	System.out.println(object3.hashCode() + " But, we cannot change the reference (pointer) of the object: On the left we have again the hase hashcode: "+object3.obj_value); //So if we re-think our statement everything is passed by value!!! you cannot change where that pointer points.
-	System.out.println("In fact everything in Java is PASSED BY VALUE!");
+	System.out.println("4."+object3.hashCode() + " But, we cannot change the reference (pointer) of the object: On the left we have again the hash hashcode: "+object3.obj_value); //So if we re-think our statement everything is passed by value!!! you cannot change where that pointer points.
+	System.out.println("4.In fact everything in Java is PASSED BY VALUE!");
 
 	final ReferenceValue object4 = new ReferenceValue();
 	//object4 = object; //Final declaration of objects cannot change objects. But object4 = object; is acceptable.
 	
-	System.out.println("\n\n\nHow can define that some collections or objects should not be modified?\n");
-	
-	ReferenceValue object5 = new ReferenceValue();
-
+	System.out.println("\n\n\n5.How can we define that some collections or objects should not be modified?\n");
+	ReferenceValue object5 = new ReferenceValue();	//We have overloaded the constructor.
 	passObject(new ReferenceValue(object5), 200);	//we really make a new object that duplicate the status of object5 and pass it as argument into the function. 
-	System.out.println(object5.hashCode() + " With the new object as argument and constructor that makes a deep copy, we can pass the object: "+object5.obj_value); //Objects passed by "Reference".
+	System.out.println("5."+object5.hashCode() + " With the new object as argument and constructor that makes a deep copy, we can pass the object: "+object5.obj_value); //Objects passed by "Reference".
+	System.out.println("\n\n");
 	
-	
+	System.out.println("with unmodified collecction");
 	unmodifiedcollection(); //Unmodifiable collections!
 	
 	System.out.println("Old name: "+human.getName()); 	// human is public static final. We cannot change the pointer, but we can change the state of the object.

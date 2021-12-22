@@ -26,7 +26,7 @@ public class HashMapExample {
           
       while(i.hasNext()) { // We iterate and display Entries (nodes) one by one.
          @SuppressWarnings("rawtypes")
-		Map.Entry me = (Map.Entry)i.next();
+		 Map.Entry me = (Map.Entry)i.next();
          System.out.print("key: "+me.getKey() + ". ");
          //System.out.print("Class: "+me.getValue().getClass() + ". ");
          System.out.println("value: "+((Shop)me.getValue()).getMessage());

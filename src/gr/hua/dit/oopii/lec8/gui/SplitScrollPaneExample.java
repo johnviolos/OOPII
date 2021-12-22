@@ -8,8 +8,8 @@ class SplitScrollPaneExample extends JFrame {
 
 	public static void main(String[] args) {
 		
-		//scrollpane();
-		splitPaneMethod();
+		scrollpane();
+		//splitPaneMethod();
 	}
 	
 	public static void splitPaneMethod()  { 
@@ -24,7 +24,7 @@ class SplitScrollPaneExample extends JFrame {
 	
 	
 	public static void scrollpane() {
-		final JFrame frame = new JFrame("Scroll Pane Example");
+		final JFrame frame = new JFrame("Scroll Pane CloneList");
 		 
         // Display the window.
         frame.setSize(250, 250);

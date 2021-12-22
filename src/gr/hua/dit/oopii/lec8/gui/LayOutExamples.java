@@ -16,9 +16,9 @@ public class LayOutExamples {
 public static void main(String[] args) {
 	//FlowLayoutExample a = new FlowLayoutExample();
 	//BorderLayoutExample a = new BorderLayoutExample();
-    GridLayoutExample a = new GridLayoutExample();
+    //GridLayoutExample a = new GridLayoutExample();
     //GridBagLayoutExample a = new GridBagLayoutExample();	//places components in a grid of rows and columns, allowing specified components to span multiple rows or columns. Not all rows necessarily have the same height
-    //CardLayoutExample a = new CardLayoutExample();    // only one component is visible at a time. It treats each component as a card that is why it is known as CardLayout.
+    CardLayoutExample a = new CardLayoutExample();    // only one component is visible at a time. It treats each component as a card that is why it is known as CardLayout.
 }
 
 public static class FlowLayoutExample extends JFrame {
@@ -32,7 +32,7 @@ public static class FlowLayoutExample extends JFrame {
         setLayout(g);								//Sets the layout manager for this container.
         setTitle("Flow Layout");
         setSize(600, 300);
-        //Button bt1= new Button("Button 1");
+        Button bt1= new Button("Button 1");
        
         add(new Button("Button 1"));
         add(new Button("Button 2"));
